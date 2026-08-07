@@ -1,0 +1,4 @@
+<!-- Inserisci questi link nel footer delle pagine del sito -->
+<a href="legal.html#privacy">Privacy</a>
+<a href="legal.html#disclaimer">Disclaimer</a>
+<a href="legal.html#termini">Termini</a>

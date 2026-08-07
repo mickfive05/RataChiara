@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Privacy Policy, Disclaimer e Termini di utilizzo di RataChiara, il calcolatore informativo per comprendere e confrontare i finanziamenti."
+    />
+    <meta name="theme-color" content="#0c2d2a" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Privacy, Disclaimer e Termini | RataChiara</title>
+
+    <style>
+      .legal-page {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 72px 0 96px;
+      }
+
+      .legal-hero {
+        max-width: 850px;
+        margin-bottom: 42px;
+      }
+
+      .legal-hero h1 {
+        margin: 12px 0 18px;
+        color: var(--ink);
+        font-size: clamp(42px, 6vw, 68px);
+        line-height: 1.02;
+        letter-spacing: -0.06em;
+      }
+
+      .legal-hero h1 em {
+        color: var(--ink-soft);
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 500;
+      }
+
+      .legal-hero > p {
+        max-width: 760px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.75;
+      }
+
+      .legal-draft-notice {
+        margin: 28px 0 0;
+        padding: 16px 18px;
+        border: 1px solid #efd2a5;
+        border-radius: 14px;
+        color: #725022;
+        background: #fff6e8;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .legal-draft-notice strong {
+        display: block;
+        margin-bottom: 4px;
+        color: #5f3e14;
+      }
+
+      .legal-layout {
+        display: grid;
+        grid-template-columns: 260px minmax(0, 1fr);
+        align-items: start;
+        gap: 28px;
+      }
+
+      .legal-nav {
+        position: sticky;
+        top: 20px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--paper);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .legal-nav > span {
+        display: block;
+        margin: 0 0 10px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 850;
+        letter-spacing: .09em;
+        text-transform: uppercase;
+      }
+
+      .legal-nav a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 44px;
+        padding: 0 12px;
+        border-radius: 10px;
+        color: #48635d;
+        font-size: 13px;
+        font-weight: 800;
+        transition: background 150ms ease, color 150ms ease;
+      }
+
+      .legal-nav a:hover {
+        color: var(--ink);
+        background: var(--soft);
+      }
+
+      .legal-nav a + a {
+        margin-top: 4px;
+      }
+
+      .legal-card {
+        scroll-margin-top: 24px;
+        padding: 34px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: var(--paper);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .legal-card + .legal-card {
+        margin-top: 22px;
+      }
+
+      .legal-card h2 {
+        margin: 8px 0 8px;
+        color: var(--ink);
+        font-size: clamp(28px, 4vw, 38px);
+        line-height: 1.1;
+        letter-spacing: -0.045em;
+      }
+
+      .legal-card .legal-intro {
+        margin: 0 0 28px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .legal-card h3 {
+        margin: 30px 0 10px;
+        color: var(--ink);
+        font-size: 17px;
+        letter-spacing: -0.025em;
+      }
+
+      .legal-card p,
+      .legal-card li {
+        color: #536b66;
+        font-size: 13px;
+        line-height: 1.75;
+      }
+
+      .legal-card p {
+        margin: 10px 0;
+      }
+
+      .legal-card ul,
+      .legal-card ol {
+        margin: 10px 0 14px;
+        padding-left: 22px;
+      }
+
+      .legal-card li + li {
+        margin-top: 7px;
+      }
+
+      .legal-card strong {
+        color: var(--ink);
+      }
+
+      .legal-highlight {
+        margin: 18px 0;
+        padding: 16px 17px;
+        border: 1px solid #cbdccf;
+        border-radius: 14px;
+        background: #f1f6ee;
+      }
+
+      .legal-highlight p {
+        margin: 0;
+      }
+
+      .legal-placeholder {
+        display: inline-block;
+        padding: 2px 6px;
+        border: 1px dashed #c98b3e;
+        border-radius: 6px;
+        color: #744719;
+        background: #fff8ea;
+        font-weight: 850;
+      }
+
+      .legal-table-wrap {
+        width: 100%;
+        margin: 16px 0 22px;
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+      }
+
+      .legal-table {
+        width: 100%;
+        min-width: 680px;
+        border-collapse: collapse;
+      }
+
+      .legal-table th,
+      .legal-table td {
+        padding: 13px 14px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+        color: #536b66;
+        font-size: 11px;
+        line-height: 1.55;
+      }
+
+      .legal-table th {
+        color: var(--ink);
+        background: var(--soft);
+        font-weight: 850;
+      }
+
+      .legal-table tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .legal-sources {
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+      }
+
+      .legal-sources a {
+        color: #2f6e5c;
+        font-weight: 800;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .legal-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        margin-top: 24px;
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .legal-footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 12px 18px;
+      }
+
+      .legal-footer-links a {
+        color: #9bb2ac;
+        font-weight: 750;
+      }
+
+      .legal-footer-links a:hover {
+        color: #fff;
+      }
+
+      :root[data-theme="dark"] .legal-draft-notice {
+        border-color: #70552f;
+        color: #e3c99b;
+        background: #2d2519;
+      }
+
+      :root[data-theme="dark"] .legal-draft-notice strong {
+        color: #f3ddb4;
+      }
+
+      :root[data-theme="dark"] .legal-card p,
+      :root[data-theme="dark"] .legal-card li,
+      :root[data-theme="dark"] .legal-table th,
+      :root[data-theme="dark"] .legal-table td {
+        color: #b6c9c2;
+      }
+
+      :root[data-theme="dark"] .legal-nav,
+      :root[data-theme="dark"] .legal-card {
+        border-color: var(--line);
+        background: var(--paper);
+      }
+
+      :root[data-theme="dark"] .legal-highlight {
+        border-color: #3b514a;
+        background: #1c2b27;
+      }
+
+      :root[data-theme="dark"] .legal-placeholder {
+        border-color: #8d6a38;
+        color: #e6c790;
+        background: #2b241a;
+      }
+
+      :root[data-theme="dark"] .legal-table th {
+        background: #1e2d2a;
+      }
+
+      :root[data-theme="dark"] .legal-sources a {
+        color: #beddad;
+      }
+
+      @media (max-width: 850px) {
+        .legal-page {
+          width: min(100% - 28px, 1180px);
+          padding: 48px 0 72px;
+        }
+
+        .legal-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .legal-nav {
+          position: static;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 6px;
+        }
+
+        .legal-nav > span {
+          grid-column: 1 / -1;
+        }
+
+        .legal-nav a {
+          justify-content: center;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .legal-hero h1 {
+          font-size: 42px;
+        }
+
+        .legal-card {
+          padding: 24px 18px;
+          border-radius: 18px;
+        }
+
+        .legal-nav {
+          grid-template-columns: 1fr;
+        }
+
+        .legal-meta {
+          flex-direction: column;
+        }
+
+        .legal-footer-links {
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html" aria-label="RataChiara, torna alla homepage">
+          <span class="brand-mark">R</span><span>RataChiara</span>
+        </a>
+        <nav aria-label="Navigazione principale">
+          <a href="index.html#calcolatore">Calcolatore</a>
+          <a href="controlla-preventivo.html">Controlla preventivo</a>
+          <a href="probabilita-approvazione.html">Sostenibilità</a>
+          <a href="index.html#confronta">Confronta</a>
+        </nav>
+        <div class="header-trust">Informazioni legali</div>
+      </header>
+
+      <main class="legal-page">
+        <section class="legal-hero">
+          <span class="eyebrow">Trasparenza prima di tutto</span>
+          <h1>Privacy, Disclaimer<br /><em>e Termini.</em></h1>
+          <p>
+            Qui trovi in modo chiaro come funziona RataChiara, quali informazioni tratta,
+            quali sono i limiti delle simulazioni e le condizioni di utilizzo del servizio.
+          </p>
+
+          <div class="legal-draft-notice" role="note">
+            <strong>Configurazione privacy-first.</strong>
+            Questa informativa descrive la configurazione prevista per RataChiara: calcoli eseguiti nel
+            browser, nessun account, nessun database applicativo e infrastruttura Cloudflare per hosting,
+            distribuzione e sicurezza. Prima della messa online definitiva va verificato che la configurazione
+            tecnica effettivamente pubblicata corrisponda a quanto indicato qui.
+          </div>
+        </section>
+
+        <div class="legal-layout">
+          <aside class="legal-nav" aria-label="Indice delle informazioni legali">
+            <span>In questa pagina</span>
+            <a href="#privacy">Privacy <span aria-hidden="true">→</span></a>
+            <a href="#disclaimer">Disclaimer <span aria-hidden="true">→</span></a>
+            <a href="#termini">Termini <span aria-hidden="true">→</span></a>
+          </aside>
+
+          <div>
+            <article class="legal-card" id="privacy">
+              <span class="eyebrow">Privacy Policy</span>
+              <h2>Come trattiamo i dati</h2>
+              <p class="legal-intro">
+                RataChiara è progettato per funzionare senza registrazione. I dati inseriti nei
+                calcolatori vengono elaborati principalmente nel browser dell'utente e, nella
+                configurazione attuale, non vengono inviati a un database di RataChiara.
+              </p>
+
+              <h3>1. Titolare del trattamento</h3>
+              <p>
+                Il titolare del trattamento è <strong>Michael</strong>.
+                Per richieste relative alla privacy o all'esercizio dei diritti previsti dal GDPR puoi scrivere a
+                <a href="mailto:michaellupo2005@gmail.com">michaellupo2005@gmail.com</a>.
+              </p>
+
+              <h3>2. Dati inseriti nei calcolatori</h3>
+              <p>
+                Importi, durata, TAN, costi, maxi-rata, reddito e gli altri valori inseriti nei
+                calcolatori sono utilizzati per produrre le simulazioni direttamente sul dispositivo.
+                RataChiara non richiede, per utilizzare gli strumenti base, nome, cognome, email,
+                numero di telefono, documento di identità o creazione di un account.
+              </p>
+              <div class="legal-highlight">
+                <p>
+                  <strong>Importante:</strong> non inserire nei campi liberi o nei nomi delle offerte
+                  informazioni personali non necessarie, dati sanitari, numeri di documento o altre
+                  informazioni riservate.
+                </p>
+              </div>
+
+              <h3>3. Offerte salvate sul dispositivo</h3>
+              <p>
+                Quando scegli di salvare un'offerta per confrontarla, i dati della simulazione vengono
+                memorizzati nella memoria locale del browser (localStorage). Questa funzione serve solo
+                a ritrovare le offerte sullo stesso dispositivo e browser. Puoi cancellarle usando i
+                comandi del sito oppure eliminando i dati del sito dalle impostazioni del browser.
+              </p>
+
+              <h3>4. Link condivisibili</h3>
+              <p>
+                Se utilizzi la funzione di condivisione, i parametri della simulazione possono essere
+                inseriti nell'indirizzo URL. Chiunque riceva quel link può quindi vedere i valori presenti
+                nell'URL. Inoltre, quando un URL viene richiesto a un server, il percorso completo può
+                essere trattato da infrastrutture tecniche, sistemi di sicurezza o log, a seconda della
+                configurazione dell'hosting.
+              </p>
+              <p>
+                Condividi quindi i link solo con persone di cui ti fidi e considera il link come
+                un'informazione che contiene i dati economici della simulazione.
+              </p>
+
+              <h3>5. Dati tecnici di navigazione e hosting</h3>
+              <p>
+                Una volta pubblicato online, il fornitore di hosting e gli eventuali servizi tecnici
+                necessari alla sicurezza e alla distribuzione del sito possono trattare dati tecnici come
+                indirizzo IP, data e ora della richiesta, pagina richiesta, user-agent, identificativi
+                tecnici ed eventuali log di errore o sicurezza.
+              </p>
+
+              <div class="legal-table-wrap">
+                <table class="legal-table">
+                  <thead>
+                    <tr>
+                      <th>Trattamento</th>
+                      <th>Finalità</th>
+                      <th>Base giuridica</th>
+                      <th>Conservazione</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Dati inseriti nei calcolatori</td>
+                      <td>Produrre la simulazione richiesta</td>
+                      <td>Elaborazione locale sul dispositivo; nella configurazione attuale non vengono ricevuti dal titolare</td>
+                      <td>Per la durata della sessione, salvo salvataggio locale scelto dall'utente</td>
+                    </tr>
+                    <tr>
+                      <td>Offerte salvate</td>
+                      <td>Confrontare simulazioni sullo stesso dispositivo</td>
+                      <td>Funzione richiesta dall'utente</td>
+                      <td>Fino alla cancellazione da parte dell'utente o del browser</td>
+                    </tr>
+                    <tr>
+                      <td>Log tecnici dell'hosting</td>
+                      <td>Sicurezza, prevenzione abusi, continuità e diagnosi tecnica</td>
+                      <td>Legittimo interesse del titolare alla sicurezza e disponibilità del servizio, nei limiti applicabili</td>
+                      <td>Nessuna conservazione aggiuntiva configurata da RataChiara; eventuali log tecnici del fornitore seguono le impostazioni e le policy del servizio Cloudflare</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>6. Cookie e strumenti di memorizzazione</h3>
+              <p>
+                Nella configurazione attuale RataChiara non utilizza cookie pubblicitari o di profilazione.
+                Il salvataggio locale delle offerte è attivato dall'utente per una funzione specifica del
+                servizio. Se in futuro verranno introdotti analytics non strettamente necessari,
+                pubblicità, pixel o altri strumenti di tracciamento, questa informativa sarà aggiornata e,
+                quando richiesto, sarà acquisito il consenso prima dell'attivazione.
+              </p>
+
+              <h3>7. Destinatari, hosting, CDN e sicurezza</h3>
+              <p>
+                La configurazione prevista per RataChiara utilizza <strong>Cloudflare Pages</strong> per
+                l'hosting statico e la rete <strong>Cloudflare</strong> per distribuzione CDN, HTTPS/TLS e
+                protezioni tecniche dell'infrastruttura. Il progetto è concepito senza backend applicativo
+                e senza database contenente i dati inseriti nei calcolatori. RataChiara non prevede, nella
+                configurazione iniziale, Logpush, conservazione autonoma dei log HTTP, pixel pubblicitari o
+                sistemi di profilazione.
+              </p>
+              <p>
+                Cloudflare può trattare dati tecnici di navigazione necessari a distribuire e proteggere il
+                sito, come indirizzo IP, data e ora della richiesta, pagina richiesta, user-agent e metadati
+                tecnici. RataChiara non utilizza tali dati per creare profili finanziari degli utenti.
+              </p>
+
+              <h3>8. Trasferimenti fuori dallo SEE</h3>
+              <p>
+                Cloudflare opera attraverso una rete globale e il trattamento di alcuni dati tecnici può
+                comportare trasferimenti o accessi da Paesi esterni allo Spazio Economico Europeo. Cloudflare
+                dichiara di utilizzare, quando necessario, le Clausole Contrattuali Standard dell'Unione
+                Europea (SCC) e, per i trasferimenti verso gli Stati Uniti, di aderire anche all'EU-U.S. Data
+                Privacy Framework. I valori inseriti nei calcolatori di RataChiara restano, per progettazione,
+                elaborati nel browser e non vengono inviati intenzionalmente a Cloudflare come dati
+                applicativi; possono invece essere coinvolti i normali dati tecnici necessari alla richiesta
+                della pagina e alla sicurezza della rete.
+              </p>
+
+              <h3>9. Nessuna decisione automatizzata con effetti giuridici</h3>
+              <p>
+                Le simulazioni di rata, TAEG, sostenibilità o probabilità indicativa non determinano
+                l'accesso al credito e non producono decisioni con effetti giuridici o analogamente
+                significativi. RataChiara non consulta CRIF, SIC, Centrale dei Rischi o banche dati del
+                finanziatore per generare queste stime.
+              </p>
+
+              <h3>10. I tuoi diritti</h3>
+              <p>
+                Nei casi in cui RataChiara tratti dati personali riferibili a te, puoi esercitare, quando
+                applicabili, i diritti previsti dagli articoli 15-22 del GDPR: accesso, rettifica,
+                cancellazione, limitazione, opposizione, portabilità e gli altri diritti previsti dalla
+                normativa. Puoi inoltre proporre reclamo al Garante per la protezione dei dati personali.
+              </p>
+              <p>
+                I dati che restano esclusivamente nel tuo browser non sono materialmente disponibili a
+                RataChiara: per cancellarli utilizza i comandi del sito o le impostazioni del browser.
+              </p>
+
+              <h3>11. Modifiche alla Privacy Policy</h3>
+              <p>
+                Questa informativa potrà essere aggiornata quando cambiano funzionalità, fornitori,
+                strumenti di misurazione o obblighi normativi. La versione pubblicata su questa pagina è
+                quella applicabile al momento della consultazione.
+              </p>
+
+              <div class="legal-sources">
+                <h3>Riferimenti utili</h3>
+                <ul>
+                  <li><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=IT" target="_blank" rel="noopener noreferrer">Regolamento (UE) 2016/679 - GDPR</a></li>
+                  <li><a href="https://www.garanteprivacy.it/temi/cookie" target="_blank" rel="noopener noreferrer">Garante Privacy - Cookie e strumenti di tracciamento</a></li>
+                  <li><a href="https://www.cloudflare.com/trust-hub/gdpr/" target="_blank" rel="noopener noreferrer">Cloudflare - GDPR e trasferimenti internazionali</a></li>
+                  <li><a href="https://www.cloudflare.com/cloudflare-customer-dpa/" target="_blank" rel="noopener noreferrer">Cloudflare - Data Processing Addendum</a></li>
+                  <li><a href="https://developers.cloudflare.com/logs/logpull/enabling-log-retention/" target="_blank" rel="noopener noreferrer">Cloudflare - Conservazione dei log HTTP</a></li>
+                </ul>
+              </div>
+
+              <div class="legal-meta">
+                <span>Ultimo aggiornamento: 7 agosto 2026</span>
+                <span>Versione: 1.1</span>
+              </div>
+            </article>
+
+            <article class="legal-card" id="disclaimer">
+              <span class="eyebrow">Disclaimer</span>
+              <h2>Limiti delle simulazioni</h2>
+              <p class="legal-intro">
+                RataChiara aiuta a comprendere i numeri di un finanziamento, ma non sostituisce il
+                finanziatore, la documentazione ufficiale o una consulenza professionale.
+              </p>
+
+              <h3>1. Finalità esclusivamente informativa</h3>
+              <p>
+                Tutti i risultati sono simulazioni matematiche e indicatori orientativi basati sui dati
+                inseriti dall'utente. Il sito non eroga credito, non raccoglie richieste di finanziamento e
+                non garantisce l'accesso a prodotti finanziari.
+              </p>
+
+              <h3>2. Nessuna offerta, approvazione o pre-delibera</h3>
+              <p>
+                Espressioni come “sostenibilità”, “fattibilità”, “probabilità” o indicatori simili non
+                rappresentano una decisione di una banca o finanziaria. Il risultato non costituisce
+                approvazione, pre-approvazione, pre-delibera, promessa di finanziamento, scoring ufficiale
+                o verifica del merito creditizio.
+              </p>
+
+              <h3>3. Nessuna consulenza finanziaria o mediazione creditizia</h3>
+              <p>
+                RataChiara, nella configurazione attuale, fornisce strumenti di calcolo e contenuti
+                informativi generali. Non seleziona un finanziatore per conto dell'utente, non mette in
+                relazione l'utente con banche o intermediari per la concessione del credito e non svolge
+                attività di mediazione creditizia.
+              </p>
+
+              <h3>4. TAN, TAEG e costo complessivo</h3>
+              <p>
+                Il TAEG mostrato è una <strong>stima</strong> costruita sulla base dei flussi e dei costi
+                inseriti dall'utente. Il valore ufficiale può differire per costi non inseriti, modalità di
+                erogazione, calendario delle scadenze, arrotondamenti, assicurazioni, imposte, servizi
+                accessori, maxi-rata finale o altre condizioni contrattuali.
+              </p>
+              <p>
+                Per ogni decisione considera sempre la documentazione precontrattuale e contrattuale
+                fornita dal finanziatore, che prevale sui risultati del sito.
+              </p>
+
+              <h3>5. Maxi-rata e piani con valore finale</h3>
+              <p>
+                Nei finanziamenti con maxi-rata finale, la rata mensile può apparire più bassa perché una
+                quota rilevante del debito viene rinviata alla scadenza. Il sito mostra l'effetto della
+                maxi-rata sulla simulazione, ma non può stabilire se l'utente disporrà delle risorse
+                necessarie per pagarla, rifinanziarla, restituire il bene o utilizzare eventuali opzioni
+                previste da un contratto specifico.
+              </p>
+
+              <h3>6. Sostenibilità e probabilità indicativa</h3>
+              <p>
+                Gli indicatori di sostenibilità sono elaborati esclusivamente dai valori inseriti. Non
+                tengono conto di tutte le politiche interne del finanziatore, delle verifiche documentali,
+                di banche dati creditizie, della Centrale dei Rischi, di informazioni reddituali ufficiali
+                o di altri elementi che possono essere determinanti nella decisione reale.
+              </p>
+
+              <h3>7. Accuratezza dei dati</h3>
+              <p>
+                L'affidabilità della simulazione dipende dalla correttezza e completezza dei valori
+                inseriti. RataChiara non può verificare che TAN, spese, assicurazioni, rate, reddito o altri
+                dati corrispondano alle condizioni effettive di un contratto o preventivo.
+              </p>
+
+              <h3>8. Verifica prima di firmare</h3>
+              <div class="legal-highlight">
+                <p>
+                  Prima di sottoscrivere un finanziamento, verifica direttamente con il finanziatore il
+                  costo complessivo, il TAEG ufficiale, tutte le spese, le condizioni della maxi-rata, le
+                  conseguenze di eventuali ritardi e ogni altra clausola contrattuale.
+                </p>
+              </div>
+
+              <div class="legal-sources">
+                <h3>Riferimenti utili</h3>
+                <ul>
+                  <li><a href="https://economiapertutti.bancaditalia.it/calcolatori/calcolatore-del-prestito-personale/" target="_blank" rel="noopener noreferrer">Banca d'Italia - Calcolatore del prestito personale</a></li>
+                  <li><a href="https://www.bancaditalia.it/pubblicazioni/guide-bi/guida-credito-consumatori/index.html" target="_blank" rel="noopener noreferrer">Banca d'Italia - Guida al credito ai consumatori</a></li>
+                  <li><a href="https://www.organismo-am.it/mediatore/" target="_blank" rel="noopener noreferrer">OAM - Mediatore creditizio</a></li>
+                </ul>
+              </div>
+
+              <div class="legal-meta">
+                <span>Ultimo aggiornamento: 7 agosto 2026</span>
+                <span>Versione: 1.1</span>
+              </div>
+            </article>
+
+            <article class="legal-card" id="termini">
+              <span class="eyebrow">Termini di utilizzo</span>
+              <h2>Condizioni del servizio</h2>
+              <p class="legal-intro">
+                Utilizzando RataChiara accetti queste condizioni per quanto applicabili. Le norme
+                inderogabili poste a tutela del consumatore restano in ogni caso ferme.
+              </p>
+
+              <h3>1. Il servizio</h3>
+              <p>
+                RataChiara mette a disposizione calcolatori, strumenti di confronto e contenuti
+                informativi dedicati ai finanziamenti. Le funzionalità possono essere aggiornate,
+                corrette, sospese o modificate nel tempo per esigenze tecniche, normative o di prodotto.
+              </p>
+
+              <h3>2. Uso consentito</h3>
+              <p>Puoi utilizzare il sito per finalità personali, informative e lecite. Non è consentito:</p>
+              <ul>
+                <li>utilizzare il servizio per attività illecite, fraudolente o ingannevoli;</li>
+                <li>tentare di compromettere sicurezza, disponibilità o funzionamento del sito;</li>
+                <li>aggirare misure tecniche di protezione o accedere a parti non destinate al pubblico;</li>
+                <li>riprodurre sistematicamente il servizio o presentarlo come proprio senza autorizzazione, salvo quanto consentito dalla legge.</li>
+              </ul>
+
+              <h3>3. Dati inseriti dall'utente</h3>
+              <p>
+                Sei responsabile dei valori che inserisci e delle decisioni che assumi sulla base della
+                simulazione. Non inserire informazioni personali di terzi senza una valida ragione e senza
+                averne titolo.
+              </p>
+
+              <h3>4. Nessun rapporto di finanziamento</h3>
+              <p>
+                L'uso di RataChiara non crea un rapporto di credito, intermediazione, consulenza
+                personalizzata o rappresentanza tra l'utente e il gestore del sito. Eventuali futuri
+                servizi di terzi saranno identificati separatamente e soggetti alle condizioni del relativo
+                fornitore.
+              </p>
+
+              <h3>5. Proprietà intellettuale</h3>
+              <p>
+                Salvo materiali appartenenti a terzi, grafica, testi originali, marchio, interfaccia,
+                struttura e codice di RataChiara sono protetti dalle norme applicabili sulla proprietà
+                intellettuale. È consentito il normale utilizzo del sito; ogni diverso sfruttamento
+                commerciale richiede autorizzazione salvo i casi previsti dalla legge.
+              </p>
+
+              <h3>6. Collegamenti a siti esterni</h3>
+              <p>
+                Il sito può contenere collegamenti a fonti istituzionali o servizi di terzi. RataChiara non
+                controlla contenuti, disponibilità o pratiche privacy dei siti esterni; quando li visiti si
+                applicano le condizioni e informative del relativo soggetto.
+              </p>
+
+              <h3>7. Disponibilità e aggiornamenti</h3>
+              <p>
+                Cerchiamo di mantenere il servizio corretto e disponibile, ma non possiamo garantire
+                assenza assoluta di errori, interruzioni, incompatibilità o risultati adatti a ogni caso
+                concreto. Le formule e i contenuti possono essere aggiornati quando necessario.
+              </p>
+
+              <h3>8. Responsabilità</h3>
+              <p>
+                Nei limiti consentiti dalla legge, RataChiara non risponde di decisioni finanziarie prese
+                esclusivamente sulla base di una simulazione, né di conseguenze derivanti da dati inseriti
+                in modo errato o incompleto. Questa clausola non limita né esclude responsabilità che non
+                possono essere escluse per legge e non pregiudica i diritti inderogabili del consumatore.
+              </p>
+
+              <h3>9. Modifiche ai Termini</h3>
+              <p>
+                I Termini possono essere aggiornati per riflettere modifiche del servizio o della normativa.
+                La versione più recente sarà pubblicata in questa pagina con la data di aggiornamento.
+              </p>
+
+              <h3>10. Legge applicabile e controversie</h3>
+              <p>
+                Salvo norme inderogabili diverse, i presenti Termini sono regolati dalla legge italiana.
+                Per gli utenti che agiscono come consumatori resta fermo il foro competente previsto dalla
+                normativa consumeristica applicabile e ogni altra tutela inderogabile.
+              </p>
+
+              <h3>11. Contatti</h3>
+              <p>
+                Per richieste relative al servizio o alla privacy puoi contattare
+                <a href="mailto:michaellupo2005@gmail.com">michaellupo2005@gmail.com</a>.
+              </p>
+
+              <div class="legal-meta">
+                <span>Ultimo aggiornamento: 7 agosto 2026</span>
+                <span>Versione: 1.1</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <div class="footer-top">
+          <a class="brand" href="index.html"><span class="brand-mark">R</span><span>RataChiara</span></a>
+          <p>Uno strumento indipendente per capire e confrontare i finanziamenti.</p>
+          <a href="index.html#calcolatore">Nuova simulazione ↑</a>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span id="current-year"></span> RataChiara</span>
+          <div class="legal-footer-links">
+            <a href="#privacy">Privacy</a>
+            <a href="#disclaimer">Disclaimer</a>
+            <a href="#termini">Termini</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
