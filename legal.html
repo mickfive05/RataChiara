@@ -13,6 +13,30 @@
     <title>Privacy, Disclaimer e Termini | RataLab</title>
 
     <style>
+      /* Keep this page inside the viewport at every size, including narrow phones. */
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .site-shell,
+      .legal-page,
+      .legal-layout,
+      .legal-content,
+      .legal-card,
+      .legal-card > *,
+      .legal-highlight,
+      .legal-draft-notice,
+      .legal-sources,
+      .legal-meta,
+      .legal-footer-links,
+      .legal-table-wrap {
+        box-sizing: border-box;
+        min-width: 0;
+        max-width: 100%;
+      }
+
       .legal-page {
         width: min(1180px, calc(100% - 40px));
         margin: 0 auto;
@@ -68,6 +92,10 @@
         grid-template-columns: 260px minmax(0, 1fr);
         align-items: start;
         gap: 28px;
+      }
+
+      .legal-content {
+        min-width: 0;
       }
 
       .legal-nav {
@@ -196,8 +224,10 @@
 
       .legal-table-wrap {
         width: 100%;
+        max-width: 100%;
         margin: 16px 0 22px;
         overflow-x: auto;
+        overscroll-behavior-inline: contain;
         border: 1px solid var(--line);
         border-radius: 14px;
       }
@@ -240,6 +270,12 @@
         font-weight: 800;
         text-decoration: underline;
         text-underline-offset: 3px;
+      }
+
+      .legal-card a[href^="mailto:"],
+      .legal-card a[href^="http"] {
+        overflow-wrap: anywhere;
+        word-break: break-word;
       }
 
       .legal-meta {
@@ -311,7 +347,7 @@
 
       @media (max-width: 850px) {
         .legal-page {
-          width: min(100% - 28px, 1180px);
+          width: min(1180px, calc(100% - 28px));
           padding: 48px 0 72px;
         }
 
@@ -338,7 +374,7 @@
 
       @media (max-width: 560px) {
         .legal-page {
-          width: min(100% - 24px, 1180px);
+          width: min(1180px, calc(100% - 24px));
           padding: 34px 0 56px;
         }
 
@@ -363,6 +399,12 @@
         .legal-card {
           padding: 24px 17px;
           border-radius: 18px;
+        }
+
+        .legal-table-wrap {
+          margin-right: 0;
+          margin-left: 0;
+          border-radius: 12px;
         }
 
         .legal-card h2 {
@@ -442,7 +484,7 @@
             <a href="#termini">Termini <span aria-hidden="true">?</span></a>
           </aside>
 
-          <div>
+          <div class="legal-content">
             <article class="legal-card" id="privacy">
               <span class="eyebrow">Privacy Policy</span>
               <h2>Come trattiamo i dati</h2>
