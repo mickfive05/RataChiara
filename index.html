@@ -86,7 +86,7 @@
         { once: true }
       );
     </script>
-    <title>RataChiara | Calcola il finanziamento senza registrazione</title>
+    <title>RataLab | Calcola il finanziamento senza registrazione</title>
   </head>
   <body>
     <svg width="0" height="0" aria-hidden="true" style="position:absolute">
@@ -126,17 +126,17 @@
 
     <div class="site-shell">
       <header class="topbar">
-        <a class="brand" href="#top" aria-label="RataChiara, torna in alto">
-          <span class="brand-mark">R</span><span>RataChiara</span>
+        <a class="brand" href="#top" aria-label="RataLab, torna in alto">
+          <span class="brand-mark">R</span><span>RataLab</span>
         </a>
         <nav aria-label="Navigazione principale">
           <a href="#calcolatore">Calcolatore</a>
           <a href="controlla-preventivo.html">Controlla preventivo</a>
-          <a href="probabilita-approvazione.html">Sostenibilità</a>
+          <a href="probabilita-approvazione.html">SostenibilitÃ </a>
           <a href="#confronta">Confronta</a>
           <a href="#guida">Come funziona</a>
         </nav>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Attiva tema scuro"><span aria-hidden="true">◐</span><span class="theme-toggle-label">Tema scuro</span></button>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Attiva tema scuro"><span aria-hidden="true">â—</span><span class="theme-toggle-label">Tema scuro</span></button>
         <div class="header-trust">
           <svg class="icon icon-sm"><use href="#icon-lock"></use></svg>Nessun account
         </div>
@@ -288,12 +288,12 @@
               </div>
 
               <label class="switch-row balloon-toggle">
-                <span><strong>Prevede una maxi-rata finale?</strong><small>Attivala se è previsto un importo aggiuntivo da pagare con l’ultima rata.</small></span>
+                <span><strong>Prevede una maxi-rata finale?</strong><small>Attivala se Ã¨ previsto un importo aggiuntivo da pagare con lâ€™ultima rata.</small></span>
                 <input id="has-balloon" type="checkbox" aria-controls="balloon-field" aria-expanded="false" />
                 <i aria-hidden="true"></i>
               </label>
               <div id="balloon-field" class="conditional-field" hidden>
-                <label class="field"><span class="field-label">Maxi-rata finale (€)</span><span class="input-shell"><span class="input-adornment input-prefix">EUR</span><input id="balloon" type="number" inputmode="decimal" min="0" step="100" disabled /></span><small>Lascia 0 se non prevista.</small></label>
+                <label class="field"><span class="field-label">Maxi-rata finale (â‚¬)</span><span class="input-shell"><span class="input-adornment input-prefix">EUR</span><input id="balloon" type="number" inputmode="decimal" min="0" step="100" disabled /></span><small>Lascia 0 se non prevista.</small></label>
               </div>
 
               <label class="switch-row">
@@ -379,7 +379,7 @@
 
                 <button id="evaluate-affordability" class="feasibility-cta-button" type="button">
                   <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-check"></use></svg>
-                  <span>Verifica la fattibilità</span>
+                  <span>Verifica la fattibilitÃ </span>
                 </button>
 
                 <p class="feasibility-cta-note">
@@ -545,12 +545,12 @@
 
       <footer>
         <div class="footer-top">
-          <a class="brand" href="#top"><span class="brand-mark">R</span><span>RataChiara</span></a>
+          <a class="brand" href="#top"><span class="brand-mark">R</span><span>RataLab</span></a>
           <p>Uno strumento indipendente per capire e confrontare i finanziamenti.</p>
           <a href="#calcolatore">Nuova simulazione &uarr;</a>
         </div>
         <div class="footer-bottom">
-          <span>&copy; <span id="current-year"></span> RataChiara</span>
+          <span>&copy; <span id="current-year"></span> RataLab</span>
           <div class="footer-legal-group">
             <span>Calcolo informativo, non costituisce consulenza o offerta di credito.</span>
             <nav class="legal-footer-links" aria-label="Informazioni legali">
@@ -693,13 +693,13 @@
         const scheduleAutoScroll = () => {
           if (cancelled) return;
 
-          /* Parte durante la dissolvenza, quando la struttura della pagina è pronta. */
+          /* Parte durante la dissolvenza, quando la struttura della pagina Ã¨ pronta. */
           startTimer = window.setTimeout(() => {
             startTimer = null;
 
             if (cancelled) return;
 
-            /* Non sposta la pagina se l'utente o il browser l'hanno già fatta scorrere. */
+            /* Non sposta la pagina se l'utente o il browser l'hanno giÃ  fatta scorrere. */
             if (Math.abs(scroller.scrollTop) > 8) {
               finishAutoScroll();
               return;

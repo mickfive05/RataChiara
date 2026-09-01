@@ -1,4 +1,4 @@
-const THEME_KEY = 'ratachiara-theme-v2';
+const THEME_KEY = 'ratalab-theme-v2';
 const systemThemeQuery = window.matchMedia?.('(prefers-color-scheme: dark)');
 const toggle = document.querySelector('[data-theme-toggle]');
 
@@ -38,7 +38,7 @@ function applyTheme(theme) {
 let manualTheme = readSavedTheme();
 applyTheme(manualTheme || systemTheme());
 
-// Se l'utente non ha scelto manualmente un tema, RataChiara segue il dispositivo
+// Se l'utente non ha scelto manualmente un tema, RataLab segue il dispositivo
 // anche quando la preferenza di sistema cambia mentre la pagina e aperta.
 systemThemeQuery?.addEventListener?.('change', () => {
   if (!manualTheme) applyTheme(systemTheme());
@@ -58,10 +58,10 @@ toggle?.addEventListener('click', () => {
 
 
 function ensureLegalFooterStyles() {
-  if (document.getElementById('ratachiara-legal-footer-styles')) return;
+  if (document.getElementById('ratalab-legal-footer-styles')) return;
 
   const style = document.createElement('style');
-  style.id = 'ratachiara-legal-footer-styles';
+  style.id = 'ratalab-legal-footer-styles';
   style.textContent = `
     .footer-legal-group {
       display: flex;

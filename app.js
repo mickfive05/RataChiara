@@ -5,7 +5,7 @@ import {
 } from './finance.js';
 import './theme.js';
 
-const STORAGE_KEY = 'ratachiara-offers-v1';
+const STORAGE_KEY = 'ratalab-offers-v1';
 const durationPresets = [24, 36, 48, 60, 72, 84];
 const $ = (id) => document.getElementById(id);
 

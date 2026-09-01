@@ -1,4 +1,4 @@
-# RataChiara MVP
+# RataLab MVP
 
 Sito statico privacy-first per calcolare e confrontare finanziamenti senza registrazione.
 Non usa framework, dipendenze esterne, backend o database.
