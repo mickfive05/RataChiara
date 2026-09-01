@@ -3,7 +3,7 @@ RATACHIARA - DATI DA COMPLETARE PRIMA DELLA PUBBLICAZIONE
 Nel file legal.html sostituisci tutti i campi tra parentesi quadre:
 
 1. Michael
-   Nome del titolare del sito o della futura attivitÃ /societÃ .
+   Nome del titolare del sito o della futura attività/società.
 
 2. 
    Indirizzo/sede da indicare nell'informativa privacy secondo il tuo inquadramento.
@@ -15,8 +15,8 @@ Nel file legal.html sostituisci tutti i campi tra parentesi quadre:
    Tempo di conservazione effettivo dei log tecnici del provider scelto.
 
 5. [HOSTING / CDN / SICUREZZA]
-   Esempio: Cloudflare Pages / Cloudflare, se sarÃ  davvero la soluzione usata.
-   Non inserire un provider finchÃ© non Ã¨ stato scelto e configurato.
+   Esempio: Cloudflare Pages / Cloudflare, se sarà davvero la soluzione usata.
+   Non inserire un provider finché non è stato scelto e configurato.
 
 6. [SPECIFICARE IN BASE AI FORNITORI SCELTI]
    Indicare se e come i fornitori comportano trasferimenti fuori dallo SEE.
@@ -27,7 +27,7 @@ Nel file legal.html sostituisci tutti i campi tra parentesi quadre:
 PRIMA DI PUBBLICARE
 - Rimuovi il riquadro arancione "Da completare prima della pubblicazione".
 - Verifica che non siano rimaste stringhe con parentesi quadre [ ... ].
-- Aggiorna la Privacy se aggiungi analytics, pubblicitÃ , form di contatto, newsletter,
+- Aggiorna la Privacy se aggiungi analytics, pubblicità, form di contatto, newsletter,
   pagamenti, account, lead generation o servizi di terzi.
 - Fai verificare la versione definitiva da un professionista, soprattutto prima di
   monetizzazione, lead generation o partnership con banche/intermediari.

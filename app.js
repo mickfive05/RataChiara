@@ -60,7 +60,7 @@ function readLoanInput() {
     initialFees: readNumber('initial-fees'),
     monthlyFees: readNumber('monthly-fees'),
     insurance: readNumber('insurance'),
-    balloon: readNumber('balloon'),
+    balloon: $('has-balloon').checked ? readNumber('balloon') : 0,
     financeInitialCosts: $('finance-initial-costs').checked,
   };
 }
@@ -93,8 +93,20 @@ function applyLoanInput(input) {
   $('initial-fees').value = input.initialFees;
   $('monthly-fees').value = input.monthlyFees;
   $('insurance').value = input.insurance;
-  $('balloon').value = input.balloon;
+  const hasBalloon = input.balloon > 0;
+  $('has-balloon').checked = hasBalloon;
+  setBalloonVisibility(hasBalloon);
+  $('balloon').value = hasBalloon ? input.balloon : 0;
   $('finance-initial-costs').checked = Boolean(input.financeInitialCosts);
+}
+
+function setBalloonVisibility(enabled) {
+  const field = $('balloon-field');
+  field.hidden = !enabled;
+  field.classList.toggle('is-visible', enabled);
+  $('balloon').disabled = !enabled;
+  $('has-balloon').setAttribute('aria-expanded', String(enabled));
+  if (!enabled) $('balloon').value = 0;
 }
 
 function setText(id, value) {
@@ -381,6 +393,10 @@ function bindEvents() {
   ].forEach((id) => $(id).addEventListener('input', recalculate));
 
   $('finance-initial-costs').addEventListener('change', recalculate);
+  $('has-balloon').addEventListener('change', () => {
+    setBalloonVisibility($('has-balloon').checked);
+    recalculate();
+  });
   $('monthly-income').addEventListener('input', updateIncomeRatio);
   ['budget-payment', 'budget-months', 'budget-tan'].forEach((id) =>
     $(id).addEventListener('input', updateBudgetCalculator));

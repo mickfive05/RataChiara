@@ -132,11 +132,11 @@
         <nav aria-label="Navigazione principale">
           <a href="#calcolatore">Calcolatore</a>
           <a href="controlla-preventivo.html">Controlla preventivo</a>
-          <a href="probabilita-approvazione.html">SostenibilitÃ </a>
+          <a href="probabilita-approvazione.html">Sostenibilità</a>
           <a href="#confronta">Confronta</a>
           <a href="#guida">Come funziona</a>
         </nav>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Attiva tema scuro"><span aria-hidden="true">â—</span><span class="theme-toggle-label">Tema scuro</span></button>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Attiva tema scuro"><span aria-hidden="true">◐</span><span class="theme-toggle-label">Tema scuro</span></button>
         <div class="header-trust">
           <svg class="icon icon-sm"><use href="#icon-lock"></use></svg>Nessun account
         </div>
@@ -288,12 +288,12 @@
               </div>
 
               <label class="switch-row balloon-toggle">
-                <span><strong>Prevede una maxi-rata finale?</strong><small>Attivala se Ã¨ previsto un importo aggiuntivo da pagare con lâ€™ultima rata.</small></span>
+                <span><strong>Prevede una maxi-rata finale?</strong><small>Attivala se è previsto un importo aggiuntivo da pagare con l’ultima rata.</small></span>
                 <input id="has-balloon" type="checkbox" aria-controls="balloon-field" aria-expanded="false" />
                 <i aria-hidden="true"></i>
               </label>
               <div id="balloon-field" class="conditional-field" hidden>
-                <label class="field"><span class="field-label">Maxi-rata finale (â‚¬)</span><span class="input-shell"><span class="input-adornment input-prefix">EUR</span><input id="balloon" type="number" inputmode="decimal" min="0" step="100" disabled /></span><small>Lascia 0 se non prevista.</small></label>
+                <label class="field"><span class="field-label">Maxi-rata finale (€)</span><span class="input-shell"><span class="input-adornment input-prefix">EUR</span><input id="balloon" type="number" inputmode="decimal" min="0" step="100" disabled /></span><small>Lascia 0 se non prevista.</small></label>
               </div>
 
               <label class="switch-row">
@@ -379,7 +379,7 @@
 
                 <button id="evaluate-affordability" class="feasibility-cta-button" type="button">
                   <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-check"></use></svg>
-                  <span>Verifica la fattibilitÃ </span>
+                  <span>Verifica la fattibilità</span>
                 </button>
 
                 <p class="feasibility-cta-note">
@@ -693,13 +693,13 @@
         const scheduleAutoScroll = () => {
           if (cancelled) return;
 
-          /* Parte durante la dissolvenza, quando la struttura della pagina Ã¨ pronta. */
+          /* Parte durante la dissolvenza, quando la struttura della pagina è pronta. */
           startTimer = window.setTimeout(() => {
             startTimer = null;
 
             if (cancelled) return;
 
-            /* Non sposta la pagina se l'utente o il browser l'hanno giÃ  fatta scorrere. */
+            /* Non sposta la pagina se l'utente o il browser l'hanno già fatta scorrere. */
             if (Math.abs(scroller.scrollTop) > 8) {
               finishAutoScroll();
               return;
