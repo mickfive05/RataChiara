@@ -337,17 +337,57 @@
       }
 
       @media (max-width: 560px) {
+        .legal-page {
+          width: min(100% - 24px, 1180px);
+          padding: 34px 0 56px;
+        }
+
         .legal-hero h1 {
-          font-size: 42px;
+          font-size: 36px;
+          line-height: 1.04;
+        }
+
+        .legal-hero > p,
+        .legal-draft-notice,
+        .legal-card .legal-intro,
+        .legal-card p,
+        .legal-card li {
+          font-size: 15px;
+          line-height: 1.7;
+        }
+
+        .legal-draft-notice {
+          padding: 16px;
         }
 
         .legal-card {
-          padding: 24px 18px;
+          padding: 24px 17px;
           border-radius: 18px;
+        }
+
+        .legal-card h2 {
+          font-size: 29px;
+        }
+
+        .legal-card h3 {
+          font-size: 18px;
+          line-height: 1.35;
+        }
+
+        .legal-card ul,
+        .legal-card ol {
+          padding-left: 20px;
         }
 
         .legal-nav {
           grid-template-columns: 1fr;
+        }
+
+        .legal-nav a,
+        .legal-footer-links a {
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
         }
 
         .legal-meta {
@@ -356,6 +396,7 @@
 
         .legal-footer-links {
           justify-content: flex-start;
+          gap: 8px 14px;
         }
       }
     </style>
@@ -396,9 +437,9 @@
         <div class="legal-layout">
           <aside class="legal-nav" aria-label="Indice delle informazioni legali">
             <span>In questa pagina</span>
-            <a href="#privacy">Privacy <span aria-hidden="true">→</span></a>
-            <a href="#disclaimer">Disclaimer <span aria-hidden="true">→</span></a>
-            <a href="#termini">Termini <span aria-hidden="true">→</span></a>
+            <a href="#privacy">Privacy <span aria-hidden="true">?</span></a>
+            <a href="#disclaimer">Disclaimer <span aria-hidden="true">?</span></a>
+            <a href="#termini">Termini <span aria-hidden="true">?</span></a>
           </aside>
 
           <div>
@@ -592,7 +633,7 @@
 
               <h3>2. Nessuna offerta, approvazione o pre-delibera</h3>
               <p>
-                Espressioni come “sostenibilità”, “fattibilità”, “probabilità” o indicatori simili non
+                Espressioni come “sostenibilità, “fattibilità, “probabilità o indicatori simili non
                 rappresentano una decisione di una banca o finanziaria. Il risultato non costituisce
                 approvazione, pre-approvazione, pre-delibera, promessa di finanziamento, scoring ufficiale
                 o verifica del merito creditizio.
@@ -767,7 +808,7 @@
         <div class="footer-top">
           <a class="brand" href="index.html"><span class="brand-mark">R</span><span>RataLab</span></a>
           <p>Uno strumento indipendente per capire e confrontare i finanziamenti.</p>
-          <a href="index.html#calcolatore">Nuova simulazione ↑</a>
+          <a href="index.html#calcolatore">Nuova simulazione ?</a>
         </div>
         <div class="footer-bottom">
           <span>© <span id="current-year"></span> RataLab</span>
