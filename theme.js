@@ -131,3 +131,77 @@ function ensureLegalFooterLinks() {
 
 ensureLegalFooterStyles();
 ensureLegalFooterLinks();
+
+function addMobileMenu() {
+  const topbar = document.querySelector('.topbar');
+  const nav = topbar?.querySelector('nav');
+  if (!topbar || !nav || document.querySelector('.mobile-menu-toggle')) return;
+
+  const toggleMenu = document.createElement('button');
+  toggleMenu.className = 'mobile-menu-toggle';
+  toggleMenu.type = 'button';
+  toggleMenu.setAttribute('aria-label', 'Apri il menu');
+  toggleMenu.setAttribute('aria-expanded', 'false');
+  toggleMenu.innerHTML = '<span></span><span></span><span></span>';
+
+  const menu = document.createElement('aside');
+  menu.className = 'mobile-menu';
+  menu.setAttribute('aria-label', 'Navigazione mobile');
+  menu.innerHTML = `<div class="mobile-menu-top"><span>Menu</span><button type="button" aria-label="Chiudi il menu">×</button></div>`;
+  menu.append(nav.cloneNode(true));
+
+  const scrim = document.createElement('div');
+  scrim.className = 'mobile-menu-scrim';
+  document.body.append(scrim, menu);
+  topbar.insertBefore(toggleMenu, topbar.querySelector('.theme-toggle'));
+
+  const setOpen = (open) => {
+    document.documentElement.classList.toggle('mobile-menu-open', open);
+    toggleMenu.setAttribute('aria-expanded', String(open));
+    toggleMenu.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu');
+  };
+
+  toggleMenu.addEventListener('click', () => setOpen(!document.documentElement.classList.contains('mobile-menu-open')));
+  menu.querySelector('.mobile-menu-top button').addEventListener('click', () => setOpen(false));
+  scrim.addEventListener('click', () => setOpen(false));
+  menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+}
+
+addMobileMenu();
+
+// The dealership shown on the business page has an independent preview theme.
+const dealerPreview = document.querySelector('.dealer-browser');
+if (dealerPreview) {
+  const dealerToolbar = dealerPreview.querySelector('.browser-chrome');
+  const dealerToggle = document.createElement('button');
+  dealerToggle.className = 'dealer-theme-toggle';
+  dealerToggle.type = 'button';
+  dealerToggle.setAttribute('aria-pressed', 'false');
+  dealerToolbar?.append(dealerToggle);
+
+  const applyDealerTheme = (theme) => {
+    const dark = theme === 'dark';
+    dealerPreview.dataset.dealerTheme = theme;
+    dealerToggle.setAttribute('aria-pressed', String(dark));
+    dealerToggle.textContent = dark ? '☀ Tema chiaro' : '◐ Tema scuro';
+  };
+
+  dealerToggle.addEventListener('click', () => {
+    applyDealerTheme(dealerPreview.dataset.dealerTheme === 'dark' ? 'light' : 'dark');
+  });
+
+  applyDealerTheme('light');
+
+  const widget = dealerPreview.querySelector('.embedded-widget');
+  if (widget && !widget.querySelector('.widget-demo-button')) {
+    const widgetTitle = widget.querySelector('h3');
+    if (widgetTitle) widgetTitle.textContent = 'Simula la tua rata';
+
+    const demoButton = document.createElement('button');
+    demoButton.className = 'widget-demo-button';
+    demoButton.type = 'button';
+    demoButton.setAttribute('aria-disabled', 'true');
+    demoButton.textContent = 'Visualizza meglio su RataLab';
+    widget.append(demoButton);
+  }
+}
