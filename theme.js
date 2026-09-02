@@ -137,6 +137,13 @@ function addMobileMenu() {
   const nav = topbar?.querySelector('nav');
   if (!topbar || !nav || document.querySelector('.mobile-menu-toggle')) return;
 
+  if (!nav.querySelector('a[href="per-aziende.html"]')) {
+    const businessLink = document.createElement('a');
+    businessLink.href = 'per-aziende.html';
+    businessLink.textContent = 'Per aziende';
+    nav.append(businessLink);
+  }
+
   const toggleMenu = document.createElement('button');
   toggleMenu.className = 'mobile-menu-toggle';
   toggleMenu.type = 'button';
