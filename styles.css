@@ -2428,11 +2428,17 @@ footer {
 }
 
 .cky-consent-container .cky-consent-bar,
-.cky-consent-container .cky-notice,
 .cky-preference-center {
   border: 1px solid #dce4db !important;
   border-radius: 18px !important;
   box-shadow: 0 22px 55px rgba(11, 45, 42, .18) !important;
+}
+
+/* CookieYes nests the notice in the bar: the inner border is visually redundant. */
+.cky-consent-container .cky-notice {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .cky-consent-container .cky-btn,
@@ -2461,12 +2467,17 @@ footer {
 }
 
 :root[data-theme="dark"] .cky-consent-container .cky-consent-bar,
-:root[data-theme="dark"] .cky-consent-container .cky-notice,
 :root[data-theme="dark"] .cky-preference-center {
   color: #e6f1eb !important;
   border-color: #3b4d48 !important;
   background: #172321 !important;
   box-shadow: 0 22px 55px rgba(0, 0, 0, .42) !important;
+}
+
+:root[data-theme="dark"] .cky-consent-container .cky-notice {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 :root[data-theme="dark"] .cky-consent-container .cky-title,
