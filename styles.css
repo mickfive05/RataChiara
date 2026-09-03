@@ -2418,6 +2418,73 @@ footer {
 .theme-toggle > span:first-child { font-size: 16px; line-height: 1; }
 
 :root[data-theme="dark"] { color: #e8f0eb; background: #101817; --ink: #e6f1eb; --ink-soft: #d2e4d9; --cream: #101817; --paper: #172321; --line: #30423e; --muted: #aec0b9; --soft: #1e2d2a; --mint: #21362c; --shadow-sm: 0 10px 30px rgba(0,0,0,.25); --shadow-lg: 0 30px 80px rgba(0,0,0,.4); }
+
+/* CookieYes: visual language aligned to RataLab, including the site theme toggle. */
+.cky-consent-container,
+.cky-preference-center,
+.cky-consent-container *,
+.cky-preference-center * {
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+.cky-consent-container .cky-consent-bar,
+.cky-consent-container .cky-notice,
+.cky-preference-center {
+  border: 1px solid #dce4db !important;
+  border-radius: 18px !important;
+  box-shadow: 0 22px 55px rgba(11, 45, 42, .18) !important;
+}
+
+.cky-consent-container .cky-btn,
+.cky-preference-center .cky-btn {
+  min-height: 42px !important;
+  border-radius: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: -.01em !important;
+}
+
+.cky-consent-container .cky-btn-accept,
+.cky-preference-center .cky-btn-accept,
+.cky-preference-center .cky-btn-save {
+  color: #102019 !important;
+  border-color: #d8ff78 !important;
+  background: #d8ff78 !important;
+}
+
+.cky-consent-container .cky-btn-reject,
+.cky-consent-container .cky-btn-customize,
+.cky-preference-center .cky-btn-reject,
+.cky-preference-center .cky-btn-customize {
+  color: #0c2d2a !important;
+  border-color: #0c2d2a !important;
+  background: transparent !important;
+}
+
+:root[data-theme="dark"] .cky-consent-container .cky-consent-bar,
+:root[data-theme="dark"] .cky-consent-container .cky-notice,
+:root[data-theme="dark"] .cky-preference-center {
+  color: #e6f1eb !important;
+  border-color: #3b4d48 !important;
+  background: #172321 !important;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, .42) !important;
+}
+
+:root[data-theme="dark"] .cky-consent-container .cky-title,
+:root[data-theme="dark"] .cky-consent-container .cky-notice-des,
+:root[data-theme="dark"] .cky-preference-center .cky-preference-title,
+:root[data-theme="dark"] .cky-preference-center .cky-preference-content-wrapper,
+:root[data-theme="dark"] .cky-preference-center .cky-accordion-header-des,
+:root[data-theme="dark"] .cky-preference-center .cky-accordion-header i {
+  color: #e6f1eb !important;
+}
+
+:root[data-theme="dark"] .cky-consent-container .cky-btn-reject,
+:root[data-theme="dark"] .cky-consent-container .cky-btn-customize,
+:root[data-theme="dark"] .cky-preference-center .cky-btn-reject,
+:root[data-theme="dark"] .cky-preference-center .cky-btn-customize {
+  color: #e6f1eb !important;
+  border-color: #aec0b9 !important;
+}
 :root[data-theme="dark"] body { background: radial-gradient(circle at 92% 3%, rgba(216,255,120,.08), transparent 27rem), var(--cream); }
 :root[data-theme="dark"] .topbar { border-color: rgba(226,241,235,.12); }:root[data-theme="dark"] .topbar nav, :root[data-theme="dark"] .header-trust, :root[data-theme="dark"] .theme-toggle { color: #b9cbc4; border-color: #3a4b47; background: rgba(23,35,33,.82); }:root[data-theme="dark"] .topbar nav a:hover { color: #fff; }
 :root[data-theme="dark"] .hero-copy > p, :root[data-theme="dark"] .hero-proof, :root[data-theme="dark"] .section-heading p, :root[data-theme="dark"] .field-label, :root[data-theme="dark"] .field > small, :root[data-theme="dark"] .card-heading p, :root[data-theme="dark"] .quote-hero p, :root[data-theme="dark"] .quote-step p, :root[data-theme="dark"] .quote-step label { color: #aec0b9; }
