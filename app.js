@@ -205,6 +205,28 @@ function recalculate() {
 
   renderSchedule(result.schedule);
   updateIncomeRatio();
+  updatePrintSummary(input, result);
+}
+
+function updatePrintSummary(input, result) {
+  setText('print-date', `Elaborato il ${new Intl.DateTimeFormat('it-IT', { dateStyle: 'long' }).format(new Date())}`);
+  setText('print-monthly-payment', formatCurrency(result.monthlyInstallment));
+  setText('print-installment-note', `per ${input.months} ${input.months === 1 ? 'mese' : 'mesi'}`);
+  setText('print-amount', formatCurrency(input.amount));
+  setText('print-down-payment', formatCurrency(input.downPayment));
+  setText('print-months', `${input.months} mesi`);
+  setText('print-tan', formatPercent(input.tan));
+  setText('print-balloon', input.balloon > 0 ? formatCurrency(input.balloon) : 'Non prevista');
+  setText('print-financed-costs', input.financeInitialCosts ? 'Sì' : 'No');
+  setText('print-initial-fees', formatCurrency(input.initialFees));
+  setText('print-monthly-fees', `${formatCurrency(input.monthlyFees)} / mese`);
+  setText('print-insurance', formatCurrency(input.insurance));
+  setText('print-total-fees', formatCurrency(result.totalFees));
+  setText('print-financed-principal', formatCurrency(result.financedPrincipal));
+  setText('print-total-interest', formatCurrency(result.totalInterest));
+  setText('print-apr', formatPercent(result.apr));
+  setText('print-final-payment', formatCurrency(result.finalInstallment));
+  setText('print-total-outlay', formatCurrency(result.totalOutlay));
 }
 
 function updateBudgetCalculator() {
@@ -380,6 +402,63 @@ function openApprovalAssessment() {
   window.location.href = `probabilita-approvazione.html?${params.toString()}`;
 }
 
+function printSimulation() {
+  const input = readLoanInput();
+  const result = calculateLoan(input);
+  const printWindow = window.open('', '_blank');
+  if (!printWindow) {
+    showStatus('Consenti i popup del browser per stampare il riepilogo');
+    return;
+  }
+
+  const row = (label, value) => `<div class="row"><span>${label}</span><strong>${value}</strong></div>`;
+  const today = new Intl.DateTimeFormat('it-IT', { dateStyle: 'long' }).format(new Date());
+  const balloon = input.balloon > 0 ? formatCurrency(input.balloon) : 'Non prevista';
+
+  printWindow.document.write(`<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><title>Riepilogo simulazione | RataLab</title>
+<style>
+  @page { size: A4 portrait; margin: 10mm; }
+  * { box-sizing: border-box; }
+  body { margin: 0; color: #17251f; font-family: Arial, sans-serif; font-size: 10pt; line-height: 1.25; }
+  .header { display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:10px; border-bottom:2px solid #254b3e; }
+  .brand { color:#3f6d56; font-size:10pt; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+  h1 { margin:3px 0 0; font-size:20pt; letter-spacing:-.04em; } .date { margin:4px 0 0; color:#5b6d64; font-size:9pt; }
+  .highlight { display:grid; grid-template-columns:1fr auto; gap:2px 16px; align-items:end; margin:12px 0; padding:11px 14px; border-radius:8px; background:#e5f1d6; }
+  .highlight span { font-weight:700; } .highlight strong { font-size:23pt; line-height:1; } .highlight small { grid-column:1/-1; color:#486153; }
+  .columns { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; } .card { border:1px solid #c9d3cd; border-radius:7px; overflow:hidden; break-inside:avoid; }
+  h2 { margin:0; padding:7px 9px; color:#254b3e; background:#f0f5f1; font-size:10pt; } .rows { padding:3px 9px 7px; }
+  .row { display:flex; justify-content:space-between; gap:8px; padding:5px 0; border-bottom:1px solid #e3e9e5; } .row:last-child { border-bottom:0; }
+  .row span { color:#53645c; font-size:8.5pt; } .row strong { font-size:9pt; text-align:right; white-space:nowrap; }
+  .total { margin-top:2px; border-top:1px solid #8ca494; } .total span, .total strong { color:#254b3e; font-weight:800; }
+  .note { margin:10px 0 0; padding-top:8px; border-top:1px solid #c9d3cd; color:#5b6d64; font-size:8pt; line-height:1.35; }
+</style></head><body>
+  <header class="header"><div><div class="brand">RataLab</div><h1>Riepilogo simulazione finanziamento</h1></div><p class="date">Elaborato il ${today}</p></header>
+  <section class="highlight"><span>Rata mensile stimata</span><strong>${formatCurrency(result.monthlyInstallment)}</strong><small>per ${input.months} ${input.months === 1 ? 'mese' : 'mesi'}</small></section>
+  <main class="columns">
+    <section class="card"><h2>Dati inseriti</h2><div class="rows">
+      ${row('Prezzo / importo richiesto', formatCurrency(input.amount))}${row('Anticipo', formatCurrency(input.downPayment))}${row('Durata', `${input.months} mesi`)}${row('TAN annuo', formatPercent(input.tan))}${row('Maxi-rata finale', balloon)}${row('Costi iniziali finanziati', input.financeInitialCosts ? 'Sì' : 'No')}
+    </div></section>
+    <section class="card"><h2>Costi indicati</h2><div class="rows">
+      ${row('Istruttoria', formatCurrency(input.initialFees))}${row('Incasso rata', `${formatCurrency(input.monthlyFees)} / mese`)}${row('Assicurazione', formatCurrency(input.insurance))}${row('Costi totali inseriti', formatCurrency(result.totalFees))}
+    </div></section>
+    <section class="card"><h2>Esito del calcolo</h2><div class="rows">
+      ${row('Capitale finanziato', formatCurrency(result.financedPrincipal))}${row('Interessi totali', formatCurrency(result.totalInterest))}${row('TAEG stimato', formatPercent(result.apr))}${row('Ultima rata complessiva', formatCurrency(result.finalInstallment))}${row('Esborso complessivo', formatCurrency(result.totalOutlay)).replace('class="row"', 'class="row total"')}
+    </div></section>
+  </main>
+  <p class="note">Simulazione informativa elaborata con i dati inseriti. Il TAEG è una stima e non costituisce un'offerta di credito. Per le condizioni effettive fa fede la documentazione del finanziatore.</p>
+  <script>window.onload = () => { window.focus(); window.print(); }<\/script>
+</body></html>`);
+  printWindow.document.close();
+}
+
+function printCurrentSimulation() {
+  document.body.classList.add('printing-simulation');
+  const clearPrintMode = () => document.body.classList.remove('printing-simulation');
+  window.addEventListener('afterprint', clearPrintMode, { once: true });
+  window.requestAnimationFrame(() => window.print());
+}
+
 function bindEvents() {
   [
     'amount',
@@ -417,7 +496,7 @@ function bindEvents() {
   $('save-offer').addEventListener('click', saveCurrentOffer);
   $('evaluate-affordability').addEventListener('click', openApprovalAssessment);
   $('copy-link').addEventListener('click', copyShareLink);
-  $('print-result').addEventListener('click', () => window.print());
+  $('print-result').addEventListener('click', printSimulation);
 
   $('offer-table-body').addEventListener('click', (event) => {
     const button = event.target.closest('[data-delete-id]');
