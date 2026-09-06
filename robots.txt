@@ -1,4 +1,8 @@
+# Access for search and retrieval. Training controls remain managed separately.
 User-agent: *
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 Sitemap: https://ratalab.it/sitemap.xml

@@ -198,7 +198,7 @@ function showEmptyAssessment() {
   status.className = 'approval-status status-empty';
   $('approval-band').textContent = 'Pronto per la stima';
   $('approval-probability').textContent = '—';
-  $('approval-status-copy').textContent = 'Completa tutti i campi e premi “Calcola la probabilità”.';
+  $('approval-status-copy').textContent = 'Completa tutti i campi e premi “Calcola l’indicatore”.';
   document.querySelector('.approval-metrics').hidden = true;
   $('approval-messages').closest('.approval-insights').hidden = true;
   $('approval-suggestions').closest('.approval-suggestions').hidden = true;
@@ -206,7 +206,7 @@ function showEmptyAssessment() {
 
 function showIncompleteAssessment() {
   showEmptyAssessment();
-  $('approval-status-copy').textContent = 'Completa i campi richiesti per ricevere la percentuale di approvazione.';
+  $('approval-status-copy').textContent = 'Completa i campi richiesti per ricevere l’indicatore orientativo.';
 }
 
 function hasRequiredAssessmentData() {
@@ -275,7 +275,7 @@ function guidance(result) {
     selfEmployed: 'Per autonomi e partita IVA, la continuità dei redditi dichiarati è particolarmente rilevante.',
     fixedTerm: 'Il contratto a tempo determinato è un fattore di maggiore incertezza nella stima.',
     temporary: 'Il lavoro intermittente o in somministrazione è un fattore di maggiore incertezza nella stima.',
-    unemployed: 'L’assenza di un reddito da lavoro ricorrente riduce sensibilmente la probabilità stimata.',
+    unemployed: 'L’assenza di un reddito da lavoro ricorrente riduce sensibilmente il punteggio orientativo.',
   };
   factors.push(employmentLabels[result.employmentType] || 'Tipo di lavoro non classificato.');
 
@@ -342,17 +342,17 @@ function render() {
     : !result.assessmentAvailable
     ? ['high', 'Non valutabile', 'I dati inseriti non rispettano i requisiti minimi di questa stima.']
     : result.probability >= 70
-    ? ['good', 'Probabilità buona', 'Il profilo inserito appare coerente con una richiesta sostenibile.']
+    ? ['good', 'Indicatore favorevole', 'Il profilo inserito appare coerente con una richiesta sostenibile.']
     : result.probability >= 45
-      ? ['review', 'Probabilità da verificare', 'Alcuni fattori meritano attenzione prima della richiesta.']
-      : ['high', 'Probabilità bassa', 'I dati inseriti indicano un profilo più difficile da finanziare.'];
+      ? ['review', 'Indicatore da approfondire', 'Alcuni fattori meritano attenzione prima della richiesta.']
+      : ['high', 'Indicatore critico', 'I dati inseriti indicano un profilo più difficile da finanziare.'];
   const status = $('approval-status');
   document.querySelector('.approval-metrics').hidden = false;
   $('approval-messages').closest('.approval-insights').hidden = false;
   $('approval-suggestions').closest('.approval-suggestions').hidden = false;
   status.className = `approval-status status-${band[0]}`;
   $('approval-band').textContent = band[1];
-  $('approval-probability').textContent = `${result.probability}%`;
+  $('approval-probability').textContent = `${result.probability}/100`;
   $('approval-status-copy').textContent = band[2];
   $('approval-ratio').textContent = result.paymentRatio === null ? 'N/D' : `${percent.format(result.paymentRatio)}%`;
   $('approval-residual').textContent = money.format(result.residualIncome);
