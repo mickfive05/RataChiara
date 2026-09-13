@@ -36,13 +36,40 @@ const event = (name) => window.gtag?.('event', name);
 function extractUrlFromText(value) {
   if (typeof value !== 'string') return '';
 
-  const match = value.match(/https?:\/\/[^\s]+/i);
+  let text = value.trim();
 
-  if (!match) return value.trim();
+  // Converte eventuali escape provenienti da condivisioni/copie
+  text = text
+    .replace(/\\&/g, '&')
+    .replace(/&amp;/g, '&');
 
-  return match[0]
+  // Cerca il primo URL http/https
+  const match = text.match(/https?:\/\/[^\s<>"']+/i);
+
+  if (!match) return '';
+
+  let url = match[0]
     .replace(/[)\],.!?;:'"]+$/g, '')
     .trim();
+
+  try {
+    const parsed = new URL(url);
+
+    // Rimuove parametri di tracking comuni
+    [
+      'utm_source',
+      'utm_medium',
+      'utm_campaign',
+      'utm_term',
+      'utm_content'
+    ].forEach((param) => {
+      parsed.searchParams.delete(param);
+    });
+
+    return parsed.toString();
+  } catch {
+    return url;
+  }
 }
 
 /**
