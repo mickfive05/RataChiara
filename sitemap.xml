@@ -16,6 +16,7 @@
   <url>
     <loc>https://ratalab.it/controlla-preventivo</loc>
   </url>
+
   <url>
     <loc>https://ratalab.it/incolla-offerta</loc>
   </url>
@@ -44,5 +45,8 @@
     <loc>https://ratalab.it/legal.html</loc>
   </url>
 
-  <url><loc>https://ratalab.it/metodo-di-calcolo.html</loc></url>
+  <url>
+    <loc>https://ratalab.it/metodo-di-calcolo.html</loc>
+  </url>
+
 </urlset>
