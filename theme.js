@@ -132,17 +132,40 @@ function ensureLegalFooterLinks() {
 ensureLegalFooterStyles();
 ensureLegalFooterLinks();
 
+function organizeMainNavigation() {
+  const nav = document.querySelector('.topbar nav');
+  if (!nav) return;
+
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  const current = (name) => page === name ? ' aria-current="page"' : '';
+  const secondaryPages = ['confrontare-due-finanziamenti.html', 'rata-reddito.html', 'tan-vs-taeg.html', 'maxi-rata-finale.html'];
+  const secondaryOpen = secondaryPages.includes(page);
+
+  nav.innerHTML = `
+    <a href="index.html#calcolatore"${page === 'index.html' ? ' aria-current="page"' : ''}>Calcolatore</a>
+    <a href="incolla-offerta.html"${current('incolla-offerta.html')}>Incolla l’offerta</a>
+    <a href="controlla-preventivo.html"${current('controlla-preventivo.html')}>Controlla preventivo</a>
+    <a href="probabilita-approvazione.html"${current('probabilita-approvazione.html')}>Sostenibilità</a>
+    <a href="guide.html"${current('guide.html')}>Guide</a>
+    <details class="nav-tools-menu"${secondaryOpen ? ' open' : ''}>
+      <summary${secondaryOpen ? ' aria-current="page"' : ''}>Altri strumenti <span aria-hidden="true">⌄</span></summary>
+      <div class="nav-tools-panel">
+        <a href="confrontare-due-finanziamenti.html"${current('confrontare-due-finanziamenti.html')}>Confronta finanziamenti</a>
+        <a href="rata-reddito.html"${current('rata-reddito.html')}>Rata e reddito</a>
+        <a href="tan-vs-taeg.html"${current('tan-vs-taeg.html')}>TAN e TAEG</a>
+        <a href="maxi-rata-finale.html"${current('maxi-rata-finale.html')}>Maxi-rata finale</a>
+      </div>
+    </details>
+    <a href="per-aziende.html"${current('per-aziende.html')}>Per aziende</a>
+  `;
+}
+
+organizeMainNavigation();
+
 function addMobileMenu() {
   const topbar = document.querySelector('.topbar');
   const nav = topbar?.querySelector('nav');
   if (!topbar || !nav || document.querySelector('.mobile-menu-toggle')) return;
-
-  if (!nav.querySelector('a[href="per-aziende.html"]')) {
-    const businessLink = document.createElement('a');
-    businessLink.href = 'per-aziende.html';
-    businessLink.textContent = 'Per aziende';
-    nav.append(businessLink);
-  }
 
   const toggleMenu = document.createElement('button');
   toggleMenu.className = 'mobile-menu-toggle';
