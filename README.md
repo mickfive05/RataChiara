@@ -21,13 +21,13 @@ Non usa framework, dipendenze esterne, backend o database.
 
 ## Avvio
 
-Il progetto e statico. Per provarlo in locale:
+Il progetto include anche una piccola API Node per la funzione “Incolla l’offerta”. Per provarlo in locale:
 
 ```bash
-python3 -m http.server 4173
+npm run serve
 ```
 
-Poi apri `http://localhost:4173`.
+Poi apri `http://localhost:4173`. La pagina `incolla-offerta.html` usa l’endpoint locale `/api/offers/analyze`: non funziona se i soli file vengono caricati su un hosting puramente statico. L’hosting deve quindi eseguire `server.js` (o offrire un equivalente endpoint serverless).
 
 ## Test dei calcoli
 
