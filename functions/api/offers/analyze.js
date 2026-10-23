@@ -13,9 +13,17 @@ function extractUrlFromText(value) {
 
   if (!match) return value.trim();
 
-  return match[0]
-    .replace(/[)\],.!?;:'"]+$/g, '')
+  const url = match[0]
+    .replace(/[),.!?;:'"]+$/g, '')
     .trim();
+
+  // `]` closes an IPv6 literal such as https://[2001:db8::1]/path.
+  // Keep it when it is paired with an opening bracket; discard only a stray one.
+  if ((url.match(/\[/g) || []).length < (url.match(/\]/g) || []).length) {
+    return url.replace(/\]+$/g, '').trim();
+  }
+
+  return url;
 }
 
 function json(body, status = 200) {

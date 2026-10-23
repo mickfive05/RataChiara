@@ -1,11 +1,18 @@
 # RataLab
 
-Calcolatori nel browser e servizio di lettura annunci. Avvio locale: `npm run serve` (porta 4173). Test: `npm test`.
+Calcolatori informativi sul finanziamento e strumento per leggere i dati pubblici di un annuncio auto.
+
+## Sviluppo
+
+- `npm test` crea gli asset pubblici in `dist/` ed esegue i test.
+- `npm run serve` avvia il server Node locale sulla porta 4173.
+- `npm run cf:dev` crea gli asset e avvia il Worker con Wrangler.
+- `npm run deploy` crea gli asset e pubblica il Worker con Wrangler.
 
 ## Hosting
-Il progetto include `functions/api/offers/analyze.js` per Cloudflare Pages. Il server Node locale non viene avviato da Pages. Il semplice upload su un hosting statico privo della funzione non supporta il recupero degli annunci; l’inserimento manuale resta utilizzabile. Verificare la destinazione effettiva nella console prima di pubblicare. Non caricare indiscriminatamente tutta la cartella: escludere report di audit, test, server locale, documentazione e `.wrangler` dagli asset pubblici.
 
-## Verifiche prima del rilascio
-Consultare `AUDIT-2026-10-23.md`. L’informativa richiede dati del titolare ancora non ricavabili dal codice. GA viene caricato da `consent.js` solo su evento di consenso Analytics CookieYes; se la CMP non si carica, Analytics rimane disabilitato. Verificare accettazione, rifiuto e revoca in produzione e la configurazione Analytics (inclusi eventi automatici).
+La produzione è configurata per **Cloudflare Workers Static Assets**. Il Worker in `worker.js` gestisce `/api/offers/analyze`; le pagine e le risorse sono copiate in `dist/` da una allowlist in `scripts/build.mjs`. Usa la root del repository come project directory. In Workers Builds configura `npm run build` come build command e `npx wrangler@latest deploy` come deploy command. La vecchia cartella `RataChiara-MVP/` non è la sorgente del deploy.
 
-Nessuna pubblicazione o richiesta AdSense è stata eseguita nell’audit.
+La copia in `dist/` esclude test, report, documentazione, server Node locale e codice server non destinato al browser. Non committare `dist/`, `.wrangler/`, `node_modules/` o file `.env`.
+
+Consulta [CLOUDFLARE.md](CLOUDFLARE.md) per la configurazione e [AUDIT-2026-10-23.md](AUDIT-2026-10-23.md) per le verifiche del sito. In produzione vanno ancora provati consenso e revoca CookieYes, richieste API e log del Worker; i test automatici non certificano la configurazione dell'account Cloudflare o le fonti esterne degli annunci.
