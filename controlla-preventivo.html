@@ -1,28 +1,13 @@
 <!doctype html>
 <html lang="it">
   <head>
-    <script async
-  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9989630758548952"
-  crossorigin="anonymous"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', {
-        analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied',
-        ad_personalization: 'denied', functionality_storage: 'denied',
-        personalization_storage: 'denied', security_storage: 'granted', wait_for_update: 2000
-      });
-      gtag('set', 'ads_data_redaction', true);
-      gtag('set', 'url_passthrough', false);
-    </script>
+    <meta name="referrer" content="strict-origin" />
+    <script src="consent.js"></script>
     <!-- Start cookieyes banner -->
     <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/56b54fa487a16de1acfcc0675c4e7793/script.js"></script>
     <!-- End cookieyes banner -->
-    <script async data-cookieyes="cookieyes-analytics" src="https://www.googletagmanager.com/gtag/js?id=G-C3XJEK0GNB"></script>
-    <script>
-      gtag('js', new Date());
-      gtag('config', 'G-C3XJEK0GNB');
-    </script>
+    
+    
     <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Controlla il tuo preventivo di finanziamento: rata, TAN, TAEG, costi, maxi rata e importo totale. Individua subito le voci da verificare." />
     <link rel="canonical" href="https://ratalab.it/controlla-preventivo" />
@@ -45,22 +30,24 @@
     <meta name="theme-color" content="#0c2d2a" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" /><link rel="stylesheet" href="styles.css" />
     <title>Controlla un Preventivo di Finanziamento | RataLab</title>
   </head>
-  <body><div class="site-shell">
+  <body>
+<noscript><p class="no-js">Guide e informazioni sono consultabili senza JavaScript. Per usare i calcolatori e il tema occorre abilitarlo.</p></noscript>
+    <a class="skip-link" href="#contenuto">Salta al contenuto</a><div class="site-shell">
     <header class="topbar"><a class="brand" href="index.html" aria-label="RataLab, torna alla home"><span class="brand-mark">R</span><span>RataLab</span></a><nav aria-label="Navigazione principale"><a href="index.html#calcolatore">Calcolatore</a><a href="controlla-preventivo.html" aria-current="page">Controlla preventivo</a><a href="probabilita-approvazione.html">Sostenibilità</a><a href="index.html#confronta">Confronta</a><a href="guide.html">Guide</a><a href="index.html#guida">Come funziona</a></nav><button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Attiva tema scuro"><span aria-hidden="true">◐</span><span class="theme-toggle-label">Tema scuro</span></button><div class="header-trust">Nessun account</div></header>
-    <main class="quote-page">
+    <main id="contenuto" tabindex="-1" class="quote-page">
       <section class="quote-hero"><span class="eyebrow">Analisi gratuita e privata</span><h1>Controlla il tuo preventivo di finanziamento</h1><p>Verifica in pochi passaggi rata, TAN, TAEG, costi e importo totale della tua proposta. Inserisci i dati principali: l’analisi avviene solo su questo dispositivo, senza account né invio di documenti.</p></section>
       <section class="quote-workspace" aria-label="Analisi del preventivo">
         <form id="quote-form" class="quote-form">
           <div class="quote-step"><div class="step-number">1</div><div><h2>Quanto ricevi realmente</h2><p>La cifra che entra sul tuo conto o viene usata per l’acquisto.</p><label>Importo realmente ricevuto <span>€</span><input id="received-amount" type="number" min="0" step="0.01" value="18000" /></label></div></div>
-          <div class="quote-step"><div class="step-number">2</div><div><h2>Quanto e per quanto tempo paghi</h2><div class="quote-fields"><label>Rata mensile <span>€</span><input id="installment" type="number" min="0" step="0.01" value="385" /></label><label>Numero di rate<input id="quote-months" type="number" min="1" max="240" step="1" value="60" /></label><label>Ultima rata / maxi-rata <span>€</span><input id="final-installment" type="number" min="0" step="0.01" value="0" /></label></div></div></div>
-          <div class="quote-step"><div class="step-number">3</div><div><h2>Costi inclusi</h2><p>Inserisci anche i costi pagati subito: servono per leggere il costo effettivo.</p><div class="quote-fields"><label>Istruttoria <span>€</span><input id="quote-initial-fees" type="number" min="0" step="0.01" value="300" /></label><label>Incasso rata (mensile) <span>€</span><input id="quote-monthly-fees" type="number" min="0" step="0.01" value="2" /></label><label>Assicurazione <span>€</span><input id="quote-insurance" type="number" min="0" step="0.01" value="0" /></label><label>Anticipo <span>€</span><input id="quote-down-payment" type="number" min="0" step="0.01" value="0" /></label><label>Altri costi <span>€</span><input id="quote-other-costs" type="number" min="0" step="0.01" value="0" /></label></div></div></div>
+          <div class="quote-step"><div class="step-number">2</div><div><h2>Quanto e per quanto tempo paghi</h2><div class="quote-fields"><label>Rata mensile <span>€</span><input id="installment" type="number" min="0" step="0.01" value="385" /></label><label>Numero di rate<input id="quote-months" type="number" min="1" max="240" step="1" value="60" /></label><label>Maxi-rata aggiuntiva all’ultima rata <span>€</span><input id="final-installment" type="number" min="0" step="0.01" value="0" /></label></div></div></div>
+          <div class="quote-step"><div class="step-number">3</div><div><h2>Costi inclusi</h2><p>Inserisci qui solo i costi pagati subito e le spese mensili non già comprese nella rata. Non contare due volte spese finanziate o incluse nei pagamenti. Il costo del credito esclude l’anticipo.</p><div class="quote-fields"><label>Istruttoria <span>€</span><input id="quote-initial-fees" type="number" min="0" step="0.01" value="300" /></label><label>Incasso rata (mensile) <span>€</span><input id="quote-monthly-fees" type="number" min="0" step="0.01" value="2" /></label><label>Assicurazione <span>€</span><input id="quote-insurance" type="number" min="0" step="0.01" value="0" /></label><label>Anticipo <span>€</span><input id="quote-down-payment" type="number" min="0" step="0.01" value="0" /></label><label>Altri costi <span>€</span><input id="quote-other-costs" type="number" min="0" step="0.01" value="0" /></label></div></div></div>
           <div class="quote-step"><div class="step-number">4</div><div><h2>Analisi finale</h2><div class="quote-fields"><label>TAN dichiarato <span>%</span><input id="declared-tan" type="number" min="0" step="0.01" placeholder="es. 6,90" /></label><label>TAEG dichiarato <span>%</span><input id="declared-apr" type="number" min="0" step="0.01" placeholder="es. 7,45" /></label></div><button class="button button-primary" type="submit">Analizza il preventivo</button></div></div>
         </form>
-        <aside class="quote-results" aria-live="polite"><span class="eyebrow">Il verdetto RataLab</span><h2>La tua offerta, in chiaro.</h2><div class="quote-main-metric"><span>Totale restituito</span><strong id="quote-total-repaid">€ 0,00</strong></div><div class="quote-metrics"><div><span>Ricevi realmente</span><strong id="quote-received">€ 0,00</strong></div><div><span>Costo finanziamento</span><strong id="quote-cost">€ 0,00</strong></div><div><span>Costi accessori</span><strong id="quote-accessory">€ 0,00</strong></div><div><span>TAN dichiarato</span><strong id="quote-tan">Non indicato</strong></div><div><span>TAEG dichiarato</span><strong id="quote-declared-apr">Non indicato</strong></div><div><span>TAEG stimato</span><strong id="quote-estimated-apr">N/D</strong></div></div><div class="warning-box"><h3>Da verificare</h3><ul id="quote-warnings"></ul></div><p class="quote-disclaimer">Stima informativa basata sui dati inseriti: per la verifica contrattuale fa fede il SECCI o il contratto.</p></aside>
+        <aside class="quote-results" aria-live="polite"><span class="eyebrow">Il riepilogo RataLab</span><h2>La tua offerta, in chiaro.</h2><div class="quote-main-metric"><span>Esborso totale (anticipo incluso)</span><strong id="quote-total-repaid">€ 0,00</strong></div><div class="quote-metrics"><div><span>Ricevi realmente</span><strong id="quote-received">€ 0,00</strong></div><div><span>Costo finanziamento</span><strong id="quote-cost">€ 0,00</strong></div><div><span>Costi accessori</span><strong id="quote-accessory">€ 0,00</strong></div><div><span>TAN dichiarato</span><strong id="quote-tan">Non indicato</strong></div><div><span>TAEG dichiarato</span><strong id="quote-declared-apr">Non indicato</strong></div><div><span>TAEG stimato</span><strong id="quote-estimated-apr">N/D</strong></div></div><div class="warning-box"><h3>Da verificare</h3><ul id="quote-warnings"></ul></div><p class="quote-disclaimer">Stima informativa basata sui dati inseriti: per la verifica contrattuale fa fede il SECCI o il contratto.</p></aside>
       </section>
       <section class="privacy-section quote-privacy" aria-labelledby="cosa-verificare"><div class="privacy-card"><div class="privacy-icon">i</div><div><span class="eyebrow">Prima di firmare</span><h2 id="cosa-verificare">Cosa verificare in un preventivo di finanziamento</h2><p>Confronta il TAN con il TAEG: il TAN indica il tasso d’interesse, mentre il TAEG considera anche i costi obbligatori e aiuta a capire il costo effettivo del credito. Controlla istruttoria, spese di incasso rata, assicurazioni e altri costi accessori. Se è prevista una maxi rata finale, assicurati di poterla sostenere; infine confronta l’importo totale da restituire con la somma realmente ricevuta. Per approfondire, prova il <a href="index.html">calcolatore finanziamento</a> oppure verifica la <a href="probabilita-approvazione.html">sostenibilità della rata</a>.</p></div></div></section>
       <section class="privacy-section quote-privacy"><div class="privacy-card"><div class="privacy-icon">✓</div><div><span class="eyebrow">Privacy first</span><h2>I tuoi dati non lasciano il dispositivo.</h2><p>Nessun account, documento o preventivo viene caricato: i calcoli avvengono direttamente nel browser.</p></div></div></section>
     <section class="method-reference" aria-label="Metodo e trasparenza"><h2>Come sono calcolati i risultati?</h2><p>Consulta formule, esempi riproducibili, costi inclusi e limiti delle stime.</p><a href="metodo-di-calcolo.html">Leggi il metodo di calcolo →</a></section></main>
-    <footer><div class="footer-top"><a class="brand" href="index.html"><span class="brand-mark">R</span><span>RataLab</span></a><p>Uno strumento indipendente per capire e confrontare i finanziamenti.</p></div><div class="footer-bottom"><span>© <span id="current-year"></span> RataLab</span><span>Calcolo informativo, non costituisce consulenza o offerta di credito.</span></div><p class="method-footer-link"><a href="metodo-di-calcolo.html">Metodo di calcolo, fonti e limiti</a></p></footer>
+    <footer><div class="footer-top"><a class="brand" href="index.html"><span class="brand-mark">R</span><span>RataLab</span></a><p>Uno strumento indipendente per capire e confrontare i finanziamenti.</p></div><div class="footer-bottom"><span>© <span id="current-year"></span> RataLab</span><span>Calcolo informativo, non costituisce consulenza o offerta di credito.</span></div><p class="method-footer-link"><a href="metodo-di-calcolo.html">Metodo di calcolo, fonti e limiti</a></p><nav class="legal-footer-links" aria-label="Informazioni e contatti"><a href="chi-siamo.html">Chi siamo</a><a href="chi-siamo.html#correzioni">Contatti e correzioni</a><a href="metodo-di-calcolo.html">Metodo e fonti</a><a href="legal.html#privacy">Privacy</a><a href="legal.html#cookie">Cookie</a><a href="legal.html#termini">Termini</a><a href="legal.html#disclaimer">Disclaimer</a></nav></footer>
   </div><script type="module" src="theme.js"></script><script type="module" src="quote-check.js"></script></body>
 </html>

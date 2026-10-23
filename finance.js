@@ -85,7 +85,7 @@ export function analyzeQuote(rawInput) {
   const totalInstallments = payments.reduce((sum, payment) => sum + payment, 0);
   const accessoryCosts = initialFees + monthlyFees * months + insurance + otherCosts;
   const totalRepaid = downPayment + initialFees + insurance + otherCosts + totalInstallments;
-  const financingCost = Math.max(0, totalRepaid - received);
+  const financingCost = Math.max(0, totalRepaid - downPayment - received);
   const estimatedApr = estimateApr(Math.max(0, received - initialFees - insurance - otherCosts), payments);
   const warnings = [];
   if (received <= 0) warnings.push('Inserisci l’importo che ricevi realmente per ottenere un’analisi completa.');
@@ -93,7 +93,7 @@ export function analyzeQuote(rawInput) {
   if (accessoryCosts > 0 && received > 0 && accessoryCosts / received >= 0.08) warnings.push('I costi accessori incidono per almeno l’8% della somma ricevuta.');
   if (declaredApr !== null && estimatedApr !== null && Math.abs(declaredApr - estimatedApr) >= 0.35) warnings.push('Il TAEG stimato dai flussi è diverso da quello dichiarato: verifica quali costi sono inclusi.');
   if (declaredTan !== null && declaredApr !== null && declaredApr + 0.01 < declaredTan) warnings.push('Il TAEG dichiarato risulta inferiore al TAN: ricontrolla i dati del preventivo.');
-  if (received > 0 && totalRepaid > received * 1.35) warnings.push('Il totale restituito supera del 35% l’importo ricevuto. Valuta durata, tasso e costi.');
+  if (received > 0 && totalRepaid - downPayment > received * 1.35) warnings.push('Il totale restituito supera del 35% l’importo ricevuto. Valuta durata, tasso e costi.');
   return { received, months, installment, finalInstallment, downPayment, initialFees, monthlyFees, insurance, otherCosts, declaredTan, declaredApr, totalRepaid, financingCost, accessoryCosts, estimatedApr, warnings };
 }
 
@@ -139,7 +139,7 @@ export function assessAffordability(rawInput) {
   let contractDurationPoints = 0;
   if (employmentType === 'fixedTerm' || employmentType === 'temporary') {
     contractDurationPoints = contractRemainingMonths >= loanMonths ? -5 : hasGuarantor ? -10 : -30;
-    if (contractRemainingMonths < loanMonths) messages.push('La durata del finanziamento supera quella residua del contratto: senza garante questo riduce molto la probabilità stimata.');
+    if (contractRemainingMonths < loanMonths) messages.push('La durata del finanziamento supera quella residua del contratto: questa differenza riduce il punteggio interno, non indica una probabilità di approvazione.');
   }
   const guarantorPoints = hasGuarantor ? 10 : 0;
   const amountPoints = amountToIncomeMonths === null ? 0

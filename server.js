@@ -33,8 +33,9 @@ const server = http.createServer(async (request, response) => {
   }
   if (request.method !== 'GET' && request.method !== 'HEAD') { response.writeHead(405).end(); return; }
   const requested = url.pathname === '/' ? '/index.html' : decodeURIComponent(url.pathname);
-  const target = path.resolve(root, `.${requested}`);
-  if (!target.startsWith(root)) { response.writeHead(403).end(); return; }
+  let target = path.resolve(root, `.${requested}`);
+  if (!path.extname(target)) target += '.html';
+  if (!target.startsWith(root + path.sep)) { response.writeHead(403).end(); return; }
   try {
     const info = await stat(target); if (!info.isFile()) throw new Error('not file');
     response.writeHead(200, { 'content-type': types[path.extname(target)] || 'application/octet-stream' });

@@ -110,7 +110,7 @@ function applyDefaults() {
   fields.downPayment.value = (price * 0.25).toFixed(2);
   fields.months.value = 60;
   fields.tan.value = 7;
-  fields.apr.value = 8;
+  fields.apr.value = '';
   fields.balloon.value = 0;
 }
 

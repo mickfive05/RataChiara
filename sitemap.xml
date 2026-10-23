@@ -10,13 +10,16 @@
   </url>
 
   <url>
+    <loc>https://ratalab.it/chi-siamo</loc>
+  </url>
+
+  <url>
     <loc>https://ratalab.it/per-aziende</loc>
   </url>
 
   <url>
     <loc>https://ratalab.it/controlla-preventivo</loc>
   </url>
-
   <url>
     <loc>https://ratalab.it/incolla-offerta</loc>
   </url>
@@ -42,11 +45,8 @@
   </url>
 
   <url>
-    <loc>https://ratalab.it/legal.html</loc>
+    <loc>https://ratalab.it/legal</loc>
   </url>
 
-  <url>
-    <loc>https://ratalab.it/metodo-di-calcolo.html</loc>
-  </url>
-
+  <url><loc>https://ratalab.it/metodo-di-calcolo</loc></url>
 </urlset>

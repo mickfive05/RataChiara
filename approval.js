@@ -169,14 +169,14 @@ function updateLivePayment() {
 }
 
 function renderBalloonSummary(loan) {
-  const hasBalloon = $('approval-has-balloon').checked && loan.balloon > 0;
+  const hasBalloon = $('approval-has-balloon').checked && loan.schedule.at(-1).balloon > 0;
   $('approval-balloon-summary').hidden = !hasBalloon;
   if (!hasBalloon) return;
   $('approval-monthly-payment').textContent = money.format(loan.monthlyInstallment);
-  $('approval-balloon-amount').textContent = money.format(loan.balloon);
+  $('approval-balloon-amount').textContent = money.format(loan.schedule.at(-1).balloon);
   $('approval-final-payment').textContent = money.format(loan.finalInstallment);
   const warning = $('approval-balloon-warning');
-  const share = loan.netCredit > 0 ? loan.balloon / loan.netCredit : 0;
+  const share = loan.netCredit > 0 ? loan.schedule.at(-1).balloon / loan.netCredit : 0;
   warning.hidden = share < 0.3;
   warning.textContent = `Attenzione: la maxi-rata rappresenta il ${percent.format(share * 100)}% dell'importo finanziato.`;
 }
@@ -228,7 +228,7 @@ function guidance(result) {
   const residualTarget = 500 + result.dependants * 100;
 
   if (!result.amountEligible) {
-    factors.push('Importo richiesto fuori dalla fascia di 200 €–75.000 € usata per questa stima di credito al consumo.');
+    factors.push('Importo richiesto fuori dalla fascia di 200 €–75.000 € supportata da questo strumento (non è una definizione normativa).');
     suggestions.push('Inserisci un importo compreso tra 200 € e 75.000 € oppure valuta un prodotto finanziario diverso.');
   }
   if (!result.hasPositiveMargin) {
@@ -299,12 +299,12 @@ function guidance(result) {
     factors.push('Età inferiore a 18 anni: il credito al consumo richiede la maggiore età.');
     suggestions.push('La richiesta può essere presentata solo dopo il compimento dei 18 anni.');
   } else if (result.ageAtEnd !== null && result.ageAtEnd > 75) {
-    factors.push(`Età prevista alla fine del piano: ${result.ageAtEnd} anni, oltre il limite usuale di molti prodotti.`);
+    factors.push(`Età prevista alla fine del piano: ${result.ageAtEnd} anni, oltre la soglia interna di 75 anni, che non è un limite universale.`);
     suggestions.push('Riduci la durata oppure verifica prodotti che prevedono un limite di età alla scadenza più elevato.');
   } else if (result.age > 0 && result.age < 25 && result.seniorityMonths < 12 && !['pensioner', 'unemployed'].includes(result.employmentType)) {
     factors.push('Età giovane e anzianità lavorativa breve: la continuità del reddito è ancora poco documentabile.');
   } else if (result.ageAtEnd !== null) {
-    factors.push(`Età prevista alla fine del piano: ${result.ageAtEnd} anni, entro il limite usuale considerato dalla stima.`);
+    factors.push(`Età prevista alla fine del piano: ${result.ageAtEnd} anni, entro la soglia interna di 75 anni.`);
   }
   if (result.paymentHistory === 'regular') {
     factors.push('Hai indicato nessun ritardo noto: il finanziatore verificherà comunque le banche dati creditizie.');
@@ -345,14 +345,14 @@ function render() {
     ? ['good', 'Indicatore favorevole', 'Il profilo inserito appare coerente con una richiesta sostenibile.']
     : result.probability >= 45
       ? ['review', 'Indicatore da approfondire', 'Alcuni fattori meritano attenzione prima della richiesta.']
-      : ['high', 'Indicatore critico', 'I dati inseriti indicano un profilo più difficile da finanziare.'];
+      : ['high', 'Indicatore critico', 'I dati inseriti indicano criticità secondo le regole interne, da esaminare nel budget.'];
   const status = $('approval-status');
   document.querySelector('.approval-metrics').hidden = false;
   $('approval-messages').closest('.approval-insights').hidden = false;
   $('approval-suggestions').closest('.approval-suggestions').hidden = false;
   status.className = `approval-status status-${band[0]}`;
   $('approval-band').textContent = band[1];
-  $('approval-probability').textContent = `${result.probability}/100`;
+  $('approval-probability').textContent = result.assessmentAvailable ? `${result.probability}/100` : 'N/D';
   $('approval-status-copy').textContent = band[2];
   $('approval-ratio').textContent = result.paymentRatio === null ? 'N/D' : `${percent.format(result.paymentRatio)}%`;
   $('approval-residual').textContent = money.format(result.residualIncome);
@@ -376,8 +376,9 @@ setBalloonVisibility($('approval-has-balloon').checked);
 configureRequiredFields();
 updateContractField();
 const approvalForm = $('approval-form');
-approvalForm.noValidate = true;
+approvalForm.noValidate = false;
 function runApprovalAssessment() {
+  if (!approvalForm.reportValidity()) return;
   if (!hasRequiredAssessmentData()) {
     showIncompleteAssessment();
     return;
