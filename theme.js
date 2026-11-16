@@ -131,7 +131,6 @@ function ensureLegalFooterLinks() {
   group.append(nav);
 }
 
-ensureLegalFooterStyles();
 ensureLegalFooterLinks();
 
 function addMobileMenu() {

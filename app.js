@@ -9,20 +9,20 @@ const STORAGE_KEY = 'ratalab-offers-v1';
 const durationPresets = [24, 36, 48, 60, 72, 84];
 const $ = (id) => document.getElementById(id);
 
-const currencyFormatter = new Intl.NumberFormat('it-IT', {
+const currencyFormatter = new Intl.NumberFormat('it-IT', { useGrouping: 'always',
   style: 'currency',
   currency: 'EUR',
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
 });
 
-const compactCurrencyFormatter = new Intl.NumberFormat('it-IT', {
+const compactCurrencyFormatter = new Intl.NumberFormat('it-IT', { useGrouping: 'always',
   style: 'currency',
   currency: 'EUR',
   maximumFractionDigits: 0,
 });
 
-const numberFormatter = new Intl.NumberFormat('it-IT', {
+const numberFormatter = new Intl.NumberFormat('it-IT', { useGrouping: 'always',
   maximumFractionDigits: 2,
 });
 

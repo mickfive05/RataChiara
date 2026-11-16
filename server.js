@@ -7,7 +7,7 @@ import { fetchOfferHtml } from './offer-fetch.js';
 import { parseOfferPage } from './offer-parser.js';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
-const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.xml': 'application/xml; charset=utf-8' };
+const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.xml': 'application/xml; charset=utf-8', '.woff2': 'font/woff2' };
 const clients = new Map();
 function limited(request) {
   const key = request.socket.remoteAddress || 'unknown'; const now = Date.now();

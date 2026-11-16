@@ -2,8 +2,8 @@ import { assessAffordability, calculateLoan, defaultLoanInput } from './finance.
 import './theme.js';
 
 const $ = (id) => document.getElementById(id);
-const money = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' });
-const percent = new Intl.NumberFormat('it-IT', { maximumFractionDigits: 1 });
+const money = new Intl.NumberFormat('it-IT', { useGrouping: 'always', style: 'currency', currency: 'EUR' });
+const percent = new Intl.NumberFormat('it-IT', { useGrouping: 'always', maximumFractionDigits: 1 });
 const value = (id) => Math.max(0, Number($(id).value) || 0);
 let linkedLoanInput = null;
 

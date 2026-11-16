@@ -1,8 +1,8 @@
 import { analyzeQuote } from './finance.js';
 import './theme.js';
 const $ = (id) => document.getElementById(id);
-const money = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' });
-const number = new Intl.NumberFormat('it-IT', { maximumFractionDigits: 2 });
+const money = new Intl.NumberFormat('it-IT', { useGrouping: 'always', style: 'currency', currency: 'EUR' });
+const number = new Intl.NumberFormat('it-IT', { useGrouping: 'always', maximumFractionDigits: 2 });
 const value = (id) => $(id).value === '' ? '' : Math.max(0, Number($(id).value) || 0);
 function percent(value) { return value === null || value === '' ? 'Non indicato' : `${number.format(value)}%`; }
 function render() {

@@ -40,5 +40,6 @@ if (output !== path.join(root, 'dist') || path.dirname(output) !== root) {
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 for (const file of files) await cp(path.join(root, file), path.join(output, file));
+await cp(path.join(root, 'fonts'), path.join(output, 'fonts'), { recursive: true });
 
 console.log(`Build RataLab completata: ${files.length} asset pubblici in dist/.`);

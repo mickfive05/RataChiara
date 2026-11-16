@@ -27,11 +27,15 @@ export function navHtml(current) {
     `<a href="${href}"${key === current ? ' aria-current="page"' : ''}>${label}</a>`).join('');
 }
 
-export const FOOTER_HTML = `<footer>
-        <div class="footer-top"><a class="brand" href="index.html"><span class="brand-mark">R</span><span>RataLab</span></a><p>Uno strumento indipendente per capire e confrontare i finanziamenti.</p><a href="per-aziende.html">Per aziende &rarr;</a></div>
-        <nav class="footer-guides" aria-label="Guide più consultate"><a href="calcolo-rata-finanziamento.html">Calcolo rata</a><a href="tan-vs-taeg.html">TAN e TAEG</a><a href="piano-ammortamento-francese.html">Piano di ammortamento</a><a href="estinzione-anticipata-finanziamento.html">Estinzione anticipata</a><a href="cessione-del-quinto.html">Cessione del quinto</a><a href="finanziamento-auto-concessionaria.html">Finanziamento auto</a><a href="glossario-finanziamenti.html">Glossario</a></nav>
-        <div class="footer-bottom"><span>© <span id="current-year"></span> RataLab</span><span>Calcolo informativo, non costituisce consulenza o offerta di credito.</span></div>
-      <p class="method-footer-link"><a href="metodo-di-calcolo.html">Metodo di calcolo, fonti e limiti</a></p><nav class="legal-footer-links" aria-label="Informazioni e contatti"><a href="chi-siamo.html">Chi siamo</a><a href="chi-siamo.html#correzioni">Contatti e correzioni</a><a href="metodo-di-calcolo.html">Metodo e fonti</a><a href="legal.html#privacy">Privacy</a><a href="legal.html#cookie">Cookie</a><a href="legal.html#termini">Termini</a><a href="legal.html#disclaimer">Disclaimer</a></nav></footer>`;
+export const FOOTER_HTML = `<footer class="site-footer">
+        <div class="site-footer-inner">
+          <div class="site-footer-brand"><a class="brand" href="index.html"><span class="brand-mark">R</span><span>RataLab</span></a><p>Uno strumento indipendente per leggere un preventivo di finanziamento, capire quanto costa davvero e confrontare le offerte. Gratuito, senza registrazione.</p></div>
+          <nav class="site-footer-col" aria-label="Strumenti"><h2>Strumenti</h2><ul><li><a href="index.html#calcolatore">Calcolatore rata</a></li><li><a href="controlla-preventivo.html">Controlla preventivo</a></li><li><a href="probabilita-approvazione.html">Sostenibilità della rata</a></li><li><a href="incolla-offerta.html">Rata da annuncio auto</a></li><li><a href="per-aziende.html">Per aziende</a></li></ul></nav>
+          <nav class="site-footer-col" aria-label="Guide più consultate"><h2>Guide</h2><ul><li><a href="calcolo-rata-finanziamento.html">Calcolo della rata</a></li><li><a href="tan-vs-taeg.html">TAN e TAEG</a></li><li><a href="estinzione-anticipata-finanziamento.html">Estinzione anticipata</a></li><li><a href="cessione-del-quinto.html">Cessione del quinto</a></li><li><a href="finanziamento-auto-concessionaria.html">Finanziamento auto</a></li><li><a href="guide.html">Tutte le guide</a></li></ul></nav>
+          <nav class="site-footer-col legal-footer-links" aria-label="Informazioni e contatti"><h2>RataLab</h2><ul><li><a href="chi-siamo.html">Chi siamo</a></li><li><a href="chi-siamo.html#correzioni">Contatti e correzioni</a></li><li><a href="metodo-di-calcolo.html">Metodo di calcolo e fonti</a></li><li><a href="legal.html#privacy">Privacy</a></li><li><a href="legal.html#cookie">Cookie</a></li><li><a href="legal.html#termini">Termini</a></li><li><a href="legal.html#disclaimer">Disclaimer</a></li></ul></nav>
+        </div>
+        <div class="footer-bottom"><span>© <span id="current-year"></span> RataLab</span><span>I calcoli sono informativi e non costituiscono consulenza o offerta di credito.</span></div>
+      </footer>`;
 
 // Le guide preesistenti scritte a mano: compaiono nell'indice accanto a quelle generate.
 const LEGACY_GUIDES = [
@@ -282,8 +286,7 @@ function shell(current, mainHtml) {
           ${navHtml(current)}
         </nav>
         <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Attiva tema scuro"><span aria-hidden="true">◐</span><span class="theme-toggle-label">Tema scuro</span></button>
-        <div class="header-trust">Nessun account</div>
-      </header>
+              </header>
 ${mainHtml}
       ${FOOTER_HTML}
     </div>
@@ -337,7 +340,7 @@ function renderGuide(guide, allGuides) {
             <span class="eyebrow">${escapeHtml(meta.category)}</span>
             <h1>${escapeHtml(meta.title)}</h1>
             <p>${inline(meta.lead)}</p>
-            <p class="article-byline">Di <a href="chi-siamo.html">${AUTHOR}</a> · Aggiornata il <time datetime="${meta.updated}">${itDate(meta.updated)}</time> · Lettura ${minutes} min</p>
+            <p class="article-byline"><span>Di <a href="chi-siamo.html">${AUTHOR}</a></span><span>Aggiornata il <time datetime="${meta.updated}">${itDate(meta.updated)}</time></span><span>${minutes} minuti di lettura</span></p>
           </header>
 ${tocHtml}
 ${html}

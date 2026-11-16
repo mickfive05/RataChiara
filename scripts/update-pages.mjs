@@ -3,7 +3,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { ADSENSE_HEAD, navHtml } from './generate.mjs';
+import { ADSENSE_HEAD, FOOTER_HTML, navHtml } from './generate.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const pages = ['index', 'chi-siamo', 'per-aziende', 'controlla-preventivo', 'incolla-offerta', 'probabilita-approvazione', 'tan-vs-taeg', 'maxi-rata-finale', 'confrontare-due-finanziamenti', 'rata-reddito', 'metodo-di-calcolo', 'legal'];
@@ -58,10 +58,9 @@ for (const name of pages) {
     return `${open}\n          ${links}\n        ${close}`;
   });
 
-  // 3. Link alle guide nel footer.
-  if (!html.includes('class="footer-guides"')) {
-    html = html.replace(/(\s*<div class="footer-bottom">)/, `\n        ${FOOTER_GUIDES}$1`);
-  }
+  // 3. Piede di pagina comune e testata senza badge.
+  html = html.replace(/<footer[\s\S]*?<\/footer>/, FOOTER_HTML);
+  html = html.replace(/\s*<div class="header-trust">[\s\S]*?<\/div>/, '');
 
   // 4. Guide correlate nelle guide storiche.
   if (RELATED[name] && !html.includes('id="correlate"')) {

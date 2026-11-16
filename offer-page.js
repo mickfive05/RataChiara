@@ -3,12 +3,12 @@ import './theme.js';
 
 const $ = (id) => document.getElementById(id);
 
-const money = new Intl.NumberFormat('it-IT', {
+const money = new Intl.NumberFormat('it-IT', { useGrouping: 'always',
   style: 'currency',
   currency: 'EUR'
 });
 
-const number = new Intl.NumberFormat('it-IT', {
+const number = new Intl.NumberFormat('it-IT', { useGrouping: 'always',
   maximumFractionDigits: 2
 });
 
