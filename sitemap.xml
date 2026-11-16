@@ -1,52 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://ratalab.it/</loc>
-  </url>
-
-  <url>
-    <loc>https://ratalab.it/guide</loc>
-  </url>
-
-  <url>
-    <loc>https://ratalab.it/chi-siamo</loc>
-  </url>
-
-  <url>
-    <loc>https://ratalab.it/per-aziende</loc>
-  </url>
-
-  <url>
-    <loc>https://ratalab.it/controlla-preventivo</loc>
-  </url>
-  <url>
-    <loc>https://ratalab.it/incolla-offerta</loc>
-  </url>
-
-  <url>
-    <loc>https://ratalab.it/probabilita-approvazione</loc>
-  </url>
-
-  <url>
-    <loc>https://ratalab.it/tan-vs-taeg</loc>
-  </url>
-
-  <url>
-    <loc>https://ratalab.it/maxi-rata-finale</loc>
-  </url>
-
-  <url>
-    <loc>https://ratalab.it/confrontare-due-finanziamenti</loc>
-  </url>
-
-  <url>
-    <loc>https://ratalab.it/rata-reddito</loc>
-  </url>
-
-  <url>
-    <loc>https://ratalab.it/legal</loc>
-  </url>
-
-  <url><loc>https://ratalab.it/metodo-di-calcolo</loc></url>
+  <url><loc>https://ratalab.it/</loc><lastmod>2026-11-16</lastmod><priority>1.0</priority></url>
+  <url><loc>https://ratalab.it/guide</loc><lastmod>2026-11-16</lastmod><priority>0.9</priority></url>
+  <url><loc>https://ratalab.it/controlla-preventivo</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/incolla-offerta</loc><lastmod>2026-11-16</lastmod><priority>0.7</priority></url>
+  <url><loc>https://ratalab.it/probabilita-approvazione</loc><lastmod>2026-11-16</lastmod><priority>0.7</priority></url>
+  <url><loc>https://ratalab.it/metodo-di-calcolo</loc><lastmod>2026-11-16</lastmod><priority>0.5</priority></url>
+  <url><loc>https://ratalab.it/chi-siamo</loc><lastmod>2026-11-16</lastmod><priority>0.5</priority></url>
+  <url><loc>https://ratalab.it/per-aziende</loc><lastmod>2026-11-16</lastmod><priority>0.4</priority></url>
+  <url><loc>https://ratalab.it/legal</loc><lastmod>2026-11-16</lastmod><priority>0.2</priority></url>
+  <url><loc>https://ratalab.it/calcolo-rata-finanziamento</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/piano-ammortamento-francese</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/glossario-finanziamenti</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/costo-totale-del-credito</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/secci-come-leggerlo</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/finanziamento-tasso-zero</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/assicurazione-finanziamento-cpi</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/tasso-fisso-o-variabile</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/rata-prestito-5000-euro</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/rata-prestito-10000-euro</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/rata-prestito-20000-euro</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/rata-prestito-30000-euro</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/prestito-personale-o-finalizzato</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/cessione-del-quinto</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/finanziamento-auto-concessionaria</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/leasing-noleggio-o-finanziamento-auto</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/confrontare-due-finanziamenti</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/maxi-rata-finale</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/quanto-posso-chiedere-in-prestito</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/rata-reddito</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/tan-vs-taeg</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/finanziamento-rifiutato-perche</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/segnalazione-crif-tempi</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/rate-non-pagate-cosa-succede</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/consolidamento-debiti</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/estinzione-anticipata-finanziamento</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/diritto-di-recesso-finanziamento</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ratalab.it/tasso-soglia-usura</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
 </urlset>

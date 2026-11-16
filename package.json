@@ -8,6 +8,7 @@
     "test": "npm run build && node --test *.test.mjs",
     "serve": "node server.js",
     "cf:dev": "npm run build && npx wrangler@latest dev",
-    "deploy": "npm run build && npx wrangler@latest deploy"
+    "deploy": "npm run build && npx wrangler@latest deploy",
+    "generate": "node scripts/generate.mjs && node scripts/update-pages.mjs"
   }
 }
